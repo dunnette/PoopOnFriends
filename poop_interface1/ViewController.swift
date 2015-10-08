@@ -65,21 +65,14 @@ class ViewController: UIViewController, CNContactPickerDelegate {
             cleanedUpNumber = NSArray(array: stringArray).componentsJoinedByString("")
             poopButton.enabled = true
             throbPoop()
-            print("throbbed")
+
         } else {
             print("No phone numbers are available")
         }
     }
     
     func throbPoop(){
-        let animation = CABasicAnimation(keyPath: "position")
-        animation.duration = 0.5
-        animation.repeatCount = 2 * Float(2)
-        animation.autoreverses = true
-        animation.fromValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y - 3))
-        animation.toValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y + 3))
-        poopButton.layer.addAnimation(animation, forKey: "position")
-
+        // throb poop after contact selected
     }
     
     @IBAction func sendSMS(sender: UIButton) {
