@@ -128,6 +128,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
             self.animateFeedbackMessage("You pooped on \(self.firstName) \(self.lastName)", delay: 2)
+            self.animateFeedbackMessage("Don't forget to wipe!", delay: 2)
             self.poopButton.enabled = true
             // UIView.animateWithDuration(0.7, delay: delay, options: UIViewAnimationOptions.CurveEaseOut, animations: {self.numPoopsLabel.alpha = 0.0}, completion: nil)
             self.delayForSeconds(Double(2)) {
