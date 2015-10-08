@@ -93,6 +93,8 @@ class ViewController: UIViewController {
         animation.toValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y + 3))
         poopButton.layer.addAnimation(animation, forKey: "position")
         animateFeedbackMessage("pooping...", delay: Double(numPoops))
+        
+        
     }
     
     func sentFeedback(){
@@ -112,6 +114,9 @@ class ViewController: UIViewController {
         
         UIView.animateWithDuration(0.7, delay:delay, options: UIViewAnimationOptions.CurveEaseOut, animations: {self.feedbackLabel.alpha = 0.0}, completion: nil)
     }
+    
+    
+    
     
     func pauseForSeconds(seconds:Int){
         
