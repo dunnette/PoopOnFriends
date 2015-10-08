@@ -58,8 +58,8 @@ class ViewController: UIViewController {
     
     func playFartSound(numPoops: Int){
         
-        for ii in 1...numPoops{
-            delay(Double(ii)+0.5) {
+        for ii in 0...(numPoops-1){
+            delay(Double(ii)) {
                 do {
                     self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fart", ofType: "mp3")!))
                     self.audioPlayer.play()
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
                 }
             }
         }
-        delay(Double(numPoops+1)) {
+        delay(Double(numPoops)) {
             do {
                 self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("flush", ofType: "mp3")!))
                 self.audioPlayer.play()
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
         
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.5
-        animation.repeatCount = 2 * Float(numPoops)
+        animation.repeatCount = 2 * Float(numPoops-1)
         animation.autoreverses = true
         animation.fromValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y - 3))
         animation.toValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y + 3))
