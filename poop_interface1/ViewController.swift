@@ -68,6 +68,14 @@ class ViewController: UIViewController {
                 }
             }
         }
+        delay(Double(numPoops+1)) {
+            do {
+                self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("flush", ofType: "mp3")!))
+                self.audioPlayer.play()
+            } catch {
+                print("Error")
+            }
+    }
     }
     
     func delay(delay:Double, closure:()->()) {
