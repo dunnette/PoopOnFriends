@@ -1,0 +1,529 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8156AFDF1BC4CF5E00B94365 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8156AFDE1BC4CF5E00B94365 /* AppDelegate.swift */; };
+		8156AFE11BC4CF5E00B94365 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8156AFE01BC4CF5E00B94365 /* ViewController.swift */; };
+		8156AFE41BC4CF5E00B94365 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8156AFE21BC4CF5E00B94365 /* Main.storyboard */; };
+		8156AFE61BC4CF5E00B94365 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8156AFE51BC4CF5E00B94365 /* Assets.xcassets */; };
+		8156AFE91BC4CF5E00B94365 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8156AFE71BC4CF5E00B94365 /* LaunchScreen.storyboard */; };
+		8156AFF41BC4CF5F00B94365 /* poop_interface1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8156AFF31BC4CF5F00B94365 /* poop_interface1Tests.swift */; };
+		8156AFFF1BC4CF5F00B94365 /* poop_interface1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8156AFFE1BC4CF5F00B94365 /* poop_interface1UITests.swift */; };
+		8156B00F1BC4E87100B94365 /* fart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8156B00E1BC4E87100B94365 /* fart.mp3 */; settings = {ASSET_TAGS = (); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8156AFF01BC4CF5F00B94365 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8156AFD31BC4CF5E00B94365 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8156AFDA1BC4CF5E00B94365;
+			remoteInfo = poop_interface1;
+		};
+		8156AFFB1BC4CF5F00B94365 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8156AFD31BC4CF5E00B94365 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8156AFDA1BC4CF5E00B94365;
+			remoteInfo = poop_interface1;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8156AFDB1BC4CF5E00B94365 /* Poop On Your Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poop On Your Friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8156AFDE1BC4CF5E00B94365 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8156AFE01BC4CF5E00B94365 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8156AFE31BC4CF5E00B94365 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8156AFE51BC4CF5E00B94365 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8156AFE81BC4CF5E00B94365 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8156AFEA1BC4CF5F00B94365 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8156AFEF1BC4CF5F00B94365 /* Poop On Your Friends.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Poop On Your Friends.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8156AFF31BC4CF5F00B94365 /* poop_interface1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = poop_interface1Tests.swift; sourceTree = "<group>"; };
+		8156AFF51BC4CF5F00B94365 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8156AFFA1BC4CF5F00B94365 /* Poop On Your Friends.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Poop On Your Friends.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8156AFFE1BC4CF5F00B94365 /* poop_interface1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = poop_interface1UITests.swift; sourceTree = "<group>"; };
+		8156B0001BC4CF5F00B94365 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8156B00E1BC4E87100B94365 /* fart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fart.mp3; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8156AFD81BC4CF5E00B94365 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8156AFEC1BC4CF5F00B94365 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8156AFF71BC4CF5F00B94365 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8156AFD21BC4CF5E00B94365 = {
+			isa = PBXGroup;
+			children = (
+				8156AFDD1BC4CF5E00B94365 /* Poop on your friends */,
+				8156AFF21BC4CF5F00B94365 /* Poop on your friends Tests */,
+				8156AFFD1BC4CF5F00B94365 /* Poop on your friends UITests */,
+				8156AFDC1BC4CF5E00B94365 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		8156AFDC1BC4CF5E00B94365 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8156AFDB1BC4CF5E00B94365 /* Poop On Your Friends.app */,
+				8156AFEF1BC4CF5F00B94365 /* Poop On Your Friends.xctest */,
+				8156AFFA1BC4CF5F00B94365 /* Poop On Your Friends.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8156AFDD1BC4CF5E00B94365 /* Poop on your friends */ = {
+			isa = PBXGroup;
+			children = (
+				8156AFDE1BC4CF5E00B94365 /* AppDelegate.swift */,
+				8156AFE01BC4CF5E00B94365 /* ViewController.swift */,
+				8156AFE21BC4CF5E00B94365 /* Main.storyboard */,
+				8156AFE51BC4CF5E00B94365 /* Assets.xcassets */,
+				8156B0101BC4E87400B94365 /* SFX */,
+				8156AFE71BC4CF5E00B94365 /* LaunchScreen.storyboard */,
+				8156AFEA1BC4CF5F00B94365 /* Info.plist */,
+			);
+			name = "Poop on your friends";
+			path = poop_interface1;
+			sourceTree = "<group>";
+		};
+		8156AFF21BC4CF5F00B94365 /* Poop on your friends Tests */ = {
+			isa = PBXGroup;
+			children = (
+				8156AFF31BC4CF5F00B94365 /* poop_interface1Tests.swift */,
+				8156AFF51BC4CF5F00B94365 /* Info.plist */,
+			);
+			name = "Poop on your friends Tests";
+			path = poop_interface1Tests;
+			sourceTree = "<group>";
+		};
+		8156AFFD1BC4CF5F00B94365 /* Poop on your friends UITests */ = {
+			isa = PBXGroup;
+			children = (
+				8156AFFE1BC4CF5F00B94365 /* poop_interface1UITests.swift */,
+				8156B0001BC4CF5F00B94365 /* Info.plist */,
+			);
+			name = "Poop on your friends UITests";
+			path = poop_interface1UITests;
+			sourceTree = "<group>";
+		};
+		8156B0101BC4E87400B94365 /* SFX */ = {
+			isa = PBXGroup;
+			children = (
+				8156B00E1BC4E87100B94365 /* fart.mp3 */,
+			);
+			name = SFX;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8156AFDA1BC4CF5E00B94365 /* Poop On Your Friends */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8156B0031BC4CF5F00B94365 /* Build configuration list for PBXNativeTarget "Poop On Your Friends" */;
+			buildPhases = (
+				8156AFD71BC4CF5E00B94365 /* Sources */,
+				8156AFD81BC4CF5E00B94365 /* Frameworks */,
+				8156AFD91BC4CF5E00B94365 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Poop On Your Friends";
+			productName = poop_interface1;
+			productReference = 8156AFDB1BC4CF5E00B94365 /* Poop On Your Friends.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8156AFEE1BC4CF5F00B94365 /* Poop On Your FriendsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8156B0061BC4CF5F00B94365 /* Build configuration list for PBXNativeTarget "Poop On Your FriendsTests" */;
+			buildPhases = (
+				8156AFEB1BC4CF5F00B94365 /* Sources */,
+				8156AFEC1BC4CF5F00B94365 /* Frameworks */,
+				8156AFED1BC4CF5F00B94365 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8156AFF11BC4CF5F00B94365 /* PBXTargetDependency */,
+			);
+			name = "Poop On Your FriendsTests";
+			productName = poop_interface1Tests;
+			productReference = 8156AFEF1BC4CF5F00B94365 /* Poop On Your Friends.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8156AFF91BC4CF5F00B94365 /* Poop On Your FriendsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8156B0091BC4CF5F00B94365 /* Build configuration list for PBXNativeTarget "Poop On Your FriendsUITests" */;
+			buildPhases = (
+				8156AFF61BC4CF5F00B94365 /* Sources */,
+				8156AFF71BC4CF5F00B94365 /* Frameworks */,
+				8156AFF81BC4CF5F00B94365 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8156AFFC1BC4CF5F00B94365 /* PBXTargetDependency */,
+			);
+			name = "Poop On Your FriendsUITests";
+			productName = poop_interface1UITests;
+			productReference = 8156AFFA1BC4CF5F00B94365 /* Poop On Your Friends.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8156AFD31BC4CF5E00B94365 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Jason Toff";
+				TargetAttributes = {
+					8156AFDA1BC4CF5E00B94365 = {
+						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 8L7VAX3G2D;
+					};
+					8156AFEE1BC4CF5F00B94365 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 8156AFDA1BC4CF5E00B94365;
+					};
+					8156AFF91BC4CF5F00B94365 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 8156AFDA1BC4CF5E00B94365;
+					};
+				};
+			};
+			buildConfigurationList = 8156AFD61BC4CF5E00B94365 /* Build configuration list for PBXProject "Poop On Your Friends" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8156AFD21BC4CF5E00B94365;
+			productRefGroup = 8156AFDC1BC4CF5E00B94365 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8156AFDA1BC4CF5E00B94365 /* Poop On Your Friends */,
+				8156AFEE1BC4CF5F00B94365 /* Poop On Your FriendsTests */,
+				8156AFF91BC4CF5F00B94365 /* Poop On Your FriendsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8156AFD91BC4CF5E00B94365 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8156AFE91BC4CF5E00B94365 /* LaunchScreen.storyboard in Resources */,
+				8156B00F1BC4E87100B94365 /* fart.mp3 in Resources */,
+				8156AFE61BC4CF5E00B94365 /* Assets.xcassets in Resources */,
+				8156AFE41BC4CF5E00B94365 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8156AFED1BC4CF5F00B94365 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8156AFF81BC4CF5F00B94365 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8156AFD71BC4CF5E00B94365 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8156AFE11BC4CF5E00B94365 /* ViewController.swift in Sources */,
+				8156AFDF1BC4CF5E00B94365 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8156AFEB1BC4CF5F00B94365 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8156AFF41BC4CF5F00B94365 /* poop_interface1Tests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8156AFF61BC4CF5F00B94365 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8156AFFF1BC4CF5F00B94365 /* poop_interface1UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8156AFF11BC4CF5F00B94365 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8156AFDA1BC4CF5E00B94365 /* Poop On Your Friends */;
+			targetProxy = 8156AFF01BC4CF5F00B94365 /* PBXContainerItemProxy */;
+		};
+		8156AFFC1BC4CF5F00B94365 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8156AFDA1BC4CF5E00B94365 /* Poop On Your Friends */;
+			targetProxy = 8156AFFB1BC4CF5F00B94365 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8156AFE21BC4CF5E00B94365 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8156AFE31BC4CF5E00B94365 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8156AFE71BC4CF5E00B94365 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8156AFE81BC4CF5E00B94365 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8156B0011BC4CF5F00B94365 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8156B0021BC4CF5F00B94365 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8156B0041BC4CF5F00B94365 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = poop_interface1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jt.poop-interface1";
+				PRODUCT_NAME = "Poop On Your Friends";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Debug;
+		};
+		8156B0051BC4CF5F00B94365 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = poop_interface1/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jt.poop-interface1";
+				PRODUCT_NAME = "Poop On Your Friends";
+				PROVISIONING_PROFILE = "";
+			};
+			name = Release;
+		};
+		8156B0071BC4CF5F00B94365 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = poop_interface1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jt.poop-interface1Tests";
+				PRODUCT_NAME = "Poop On Your Friends";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Poop On Your Friends.app/Poop On Your Friends";
+			};
+			name = Debug;
+		};
+		8156B0081BC4CF5F00B94365 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = poop_interface1Tests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jt.poop-interface1Tests";
+				PRODUCT_NAME = "Poop On Your Friends";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Poop On Your Friends.app/Poop On Your Friends";
+			};
+			name = Release;
+		};
+		8156B00A1BC4CF5F00B94365 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = poop_interface1UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jt.poop-interface1UITests";
+				PRODUCT_NAME = "Poop On Your Friends";
+				TEST_TARGET_NAME = poop_interface1;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		8156B00B1BC4CF5F00B94365 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = poop_interface1UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jt.poop-interface1UITests";
+				PRODUCT_NAME = "Poop On Your Friends";
+				TEST_TARGET_NAME = poop_interface1;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8156AFD61BC4CF5E00B94365 /* Build configuration list for PBXProject "Poop On Your Friends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8156B0011BC4CF5F00B94365 /* Debug */,
+				8156B0021BC4CF5F00B94365 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8156B0031BC4CF5F00B94365 /* Build configuration list for PBXNativeTarget "Poop On Your Friends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8156B0041BC4CF5F00B94365 /* Debug */,
+				8156B0051BC4CF5F00B94365 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8156B0061BC4CF5F00B94365 /* Build configuration list for PBXNativeTarget "Poop On Your FriendsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8156B0071BC4CF5F00B94365 /* Debug */,
+				8156B0081BC4CF5F00B94365 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8156B0091BC4CF5F00B94365 /* Build configuration list for PBXNativeTarget "Poop On Your FriendsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8156B00A1BC4CF5F00B94365 /* Debug */,
+				8156B00B1BC4CF5F00B94365 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8156AFD31BC4CF5E00B94365 /* Project object */;
+}
