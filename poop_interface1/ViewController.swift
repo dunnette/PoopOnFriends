@@ -14,7 +14,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     @IBOutlet weak var pickAFriendButton: UIButton!
     @IBOutlet weak var poopButton: UIButton!
-    @IBOutlet weak var feedbackLabel: UILabel!
     
     @IBOutlet weak var numPoopsLabel: UILabel!
     
@@ -28,10 +27,20 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         }
     }
     
+    func resetPoopSlider(){
+        if timesToPoop == 1{
+            numPoopsLabel.text = String(timesToPoop) + " poop"
+        } else{
+            numPoopsLabel.text = String(timesToPoop) + " poops"
+        }
+    }
+    
     var timesToPoop = 1
     var numPoops = 1
     var contactNumber = ""
     var cleanedUpNumber = ""
+    var firstName = ""
+    var lastName = ""
     
     @IBAction func pickContact() {
         let contactPicker = CNContactPickerViewController()
@@ -48,8 +57,10 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
         if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
             contactNumber = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
+            firstName = contact.givenName
+            lastName = contact.familyName
             print("\(contact.givenName) \(contact.familyName): \(contactNumber)")
-            pickAFriendButton.setTitle("\(contact.givenName) \(contact.familyName)", forState: .Normal)
+            pickAFriendButton.setTitle("\(firstName) \(lastName)", forState: .Normal)
             let stringArray = contactNumber.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
             cleanedUpNumber = NSArray(array: stringArray).componentsJoinedByString("")
         } else {
@@ -77,7 +88,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     func playFartSound(numPoops: Int){
         
         for ii in 0...(numPoops-1){
-            delay(Double(ii)) {
+            delayForSeconds(Double(ii)) {
                 do {
                     self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fart", ofType: "mp3")!))
                     self.audioPlayer.play()
@@ -86,7 +97,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
                 }
             }
         }
-        delay(Double(numPoops)) {
+        delayForSeconds(Double(numPoops)) {
             do {
                 self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("flush", ofType: "mp3")!))
                 self.audioPlayer.play()
@@ -96,7 +107,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         }
     }
     
-    func delay(delay:Double, closure:()->()) {
+    func delayForSeconds(delay:Double, closure:()->()) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), closure)
     }
     
@@ -116,18 +127,25 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         let delay = Double(numPoops) * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
-            self.animateFeedbackMessage("pooped", delay: 2)
+            self.animateFeedbackMessage("You pooped on \(self.firstName) \(self.lastName)", delay: 2)
             self.poopButton.enabled = true
-            UIView.animateWithDuration(0.7, delay: delay, options: UIViewAnimationOptions.CurveEaseOut, animations: {self.feedbackLabel.alpha = 0.0}, completion: nil)
+            // UIView.animateWithDuration(0.7, delay: delay, options: UIViewAnimationOptions.CurveEaseOut, animations: {self.numPoopsLabel.alpha = 0.0}, completion: nil)
+            self.delayForSeconds(Double(2)) {
+                do{
+                    
+                self.resetPoopSlider()
+            }
+            }
+        
         }
     }
     
     func animateFeedbackMessage(message:String, delay: Double){
         
-        self.feedbackLabel.text = message
-        self.feedbackLabel.alpha = 1.0
+        self.numPoopsLabel.text = message
+        self.numPoopsLabel.alpha = 1.0
         
-        UIView.animateWithDuration(0.7, delay:delay, options: UIViewAnimationOptions.CurveEaseOut, animations: {self.feedbackLabel.alpha = 0.0}, completion: nil)
+        // UIView.animateWithDuration(0.7, delay:delay, options: UIViewAnimationOptions.CurveEaseOut, animations: {self.numPoopsLabel.alpha = 0.0}, completion: nil)
     }
     
     func pauseForSeconds(seconds:Int){
