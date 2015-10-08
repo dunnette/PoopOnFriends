@@ -8,10 +8,11 @@
 
 import UIKit
 import AVFoundation
+import ContactsUI
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, CNContactPickerDelegate {
     
-    @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var pickAFriendButton: UIButton!
     @IBOutlet weak var poopButton: UIButton!
     @IBOutlet weak var feedbackLabel: UILabel!
     
@@ -29,25 +30,58 @@ class ViewController: UIViewController {
     
     var timesToPoop = 1
     var numPoops = 1
+    var contactNumber = "6107512181"
+    var cleanedUpNumber = "6107512181"
+    
+    @IBAction func pickContact() {
+        let contactPicker = CNContactPickerViewController()
+        contactPicker.delegate = self
+        contactPicker.predicateForEnablingContact = NSPredicate(format:"phoneNumbers.@count > 0", argumentArray: nil)
+        self.presentViewController(contactPicker, animated: true, completion: nil)
+    }
+    
+    func contactPickerDidCancel(picker: CNContactPickerViewController) {
+        print("Cancelled picking a contact")
+    }
+    // contacts --> contact
+    // func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact]) {
+    func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
+        
+            if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
+                contactNumber = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
+                print("\(contact.givenName) \(contact.familyName): \(contactNumber)")
+                
+                // update field
+                pickAFriendButton.setTitle("\(contact.givenName) \(contact.familyName)", forState: .Normal)
+                
+                let stringArray = contactNumber.componentsSeparatedByCharactersInSet(
+                    NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+                cleanedUpNumber = NSArray(array: stringArray).componentsJoinedByString("")
+                
+
+            } else {
+                // Should never get here becuase: contactPicker.displayedPropertyKeys = [CNContactPhoneNumbersKey]
+                print("No phone numbers are available")
+            }
+        
+    }
+
     
     @IBAction func sendSMS(sender: UIButton) {
         
-        if let currentNum = phoneNumberTextField.text where !currentNum.isEmpty && currentNum != "Enter a number"{
-            
-            numPoops = Int(timesToPoop.value)
-            
-            for _ in 1...numPoops {
-                sendMessage(currentNum)
-            }
-            
+       // ADD CHECK TO SEE IF THERE'S A PHONE NUMBER
+        numPoops = Int(timesToPoop.value)
+
+        for _ in 1...numPoops {
+            print("Cleaned up number is: \(cleanedUpNumber)")
+            sendMessage(cleanedUpNumber)
             playFartSound(numPoops)
-            
-            // sendMessage(currentNum)
-        } else{
-            animateFeedbackMessage("could not poop on this person", delay: 2)
-            // sendMessage("")
         }
+        
+        
     }
+    
+        
     
     func sendMessage(number:String){
         sendingFeedback()
