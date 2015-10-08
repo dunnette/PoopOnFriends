@@ -8,11 +8,10 @@
 
 import UIKit
 import AVFoundation
-import ContactsUI
 
-class ViewController: UIViewController, CNContactPickerDelegate {
+class ViewController: UIViewController {
     
-    @IBOutlet weak var pickAFriendButton: UIButton!
+    @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var poopButton: UIButton!
     @IBOutlet weak var feedbackLabel: UILabel!
     
@@ -30,58 +29,25 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     var timesToPoop = 1
     var numPoops = 1
-    var contactNumber = "6107512181"
-    var cleanedUpNumber = "6107512181"
-    
-    @IBAction func pickContact() {
-        let contactPicker = CNContactPickerViewController()
-        contactPicker.delegate = self
-        contactPicker.predicateForEnablingContact = NSPredicate(format:"phoneNumbers.@count > 0", argumentArray: nil)
-        self.presentViewController(contactPicker, animated: true, completion: nil)
-    }
-    
-    func contactPickerDidCancel(picker: CNContactPickerViewController) {
-        print("Cancelled picking a contact")
-    }
-    // contacts --> contact
-    // func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact]) {
-    func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
-        
-            if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
-                contactNumber = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
-                print("\(contact.givenName) \(contact.familyName): \(contactNumber)")
-                
-                // update field
-                pickAFriendButton.setTitle("\(contact.givenName) \(contact.familyName)", forState: .Normal)
-                
-                let stringArray = contactNumber.componentsSeparatedByCharactersInSet(
-                    NSCharacterSet.decimalDigitCharacterSet().invertedSet)
-                cleanedUpNumber = NSArray(array: stringArray).componentsJoinedByString("")
-                
-
-            } else {
-                // Should never get here becuase: contactPicker.displayedPropertyKeys = [CNContactPhoneNumbersKey]
-                print("No phone numbers are available")
-            }
-        
-    }
-
     
     @IBAction func sendSMS(sender: UIButton) {
         
-       // ADD CHECK TO SEE IF THERE'S A PHONE NUMBER
-        numPoops = Int(timesToPoop.value)
-
-        for _ in 1...numPoops {
-            print("Cleaned up number is: \(cleanedUpNumber)")
-            sendMessage(cleanedUpNumber)
+        if let currentNum = phoneNumberTextField.text where !currentNum.isEmpty && currentNum != "Enter a number"{
+            
+            numPoops = Int(timesToPoop.value)
+            
+            for _ in 1...numPoops {
+                sendMessage(currentNum)
+            }
+            
             playFartSound(numPoops)
+            
+            // sendMessage(currentNum)
+        } else{
+            animateFeedbackMessage("could not poop on this person", delay: 2)
+            // sendMessage("")
         }
-        
-        
     }
-    
-        
     
     func sendMessage(number:String){
         sendingFeedback()
@@ -92,8 +58,8 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     func playFartSound(numPoops: Int){
         
-        for ii in 0...(numPoops-1){
-            delay(Double(ii)) {
+        for ii in 1...numPoops{
+            delay(Double(ii)+0.5) {
                 do {
                     self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fart", ofType: "mp3")!))
                     self.audioPlayer.play()
@@ -102,7 +68,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
                 }
             }
         }
-        delay(Double(numPoops)) {
+        delay(Double(numPoops+1)) {
             do {
                 self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("flush", ofType: "mp3")!))
                 self.audioPlayer.play()
@@ -121,7 +87,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.5
-        animation.repeatCount = 2 * Float(numPoops-1)
+        animation.repeatCount = 2 * Float(numPoops)
         animation.autoreverses = true
         animation.fromValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y - 3))
         animation.toValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y + 3))
