@@ -63,6 +63,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
             pickAFriendButton.setTitle("\(firstName) \(lastName)", forState: .Normal)
             let stringArray = contactNumber.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
             cleanedUpNumber = NSArray(array: stringArray).componentsJoinedByString("")
+            poopButton.enabled = true
         } else {
             print("No phone numbers are available")
         }
@@ -164,6 +165,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        poopButton.enabled = false
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
