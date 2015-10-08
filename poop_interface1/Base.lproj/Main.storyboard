@@ -17,14 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter a number" placeholder="Enter phone number" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wy0-Im-ty2">
-                                <rect key="frame" x="26" y="136" width="323" height="29"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
-                                <textInputTraits key="textInputTraits" spellCheckingType="no" keyboardType="phonePad" enablesReturnKeyAutomatically="YES"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLJ-Z9-rd1">
-                                <rect key="frame" x="-40" y="-63" width="0.0" height="0.0"/>
+                                <rect key="frame" x="58" y="94" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -36,7 +30,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMp-kd-t59">
-                                <rect key="frame" x="157" y="200" width="60" height="60"/>
+                                <rect key="frame" x="157" y="211" width="60" height="60"/>
                                 <state key="normal" image="poop">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -45,23 +39,33 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="U8a-QV-QhR">
-                                <rect key="frame" x="65" y="300" width="245" height="31"/>
+                                <rect key="frame" x="65" y="311" width="245" height="31"/>
                                 <connections>
                                     <action selector="numPoopsSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="75l-aR-fUu"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irb-DY-8Bi">
-                                <rect key="frame" x="26" y="416" width="323" height="0.0"/>
+                                <rect key="frame" x="26" y="426.5" width="323" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 poop" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMv-Uw-yBN">
-                                <rect key="frame" x="161.5" y="355" width="52" height="21"/>
+                                <rect key="frame" x="162" y="366" width="51.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ou-HW-Row">
+                                <rect key="frame" x="118" y="134" width="138" height="41"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <state key="normal" title="Pick a friend">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="pickContact" destination="BYZ-38-t0r" eventType="touchUpInside" id="eDH-8Q-OZM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.69411764705882351" green="0.4392156862745098" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -69,19 +73,18 @@
                             <constraint firstItem="Irb-DY-8Bi" firstAttribute="top" secondItem="YMv-Uw-yBN" secondAttribute="bottom" constant="40" id="34s-Mp-57R"/>
                             <constraint firstItem="zTW-eQ-HtI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="58z-64-E7n"/>
                             <constraint firstItem="U8a-QV-QhR" firstAttribute="top" secondItem="BMp-kd-t59" secondAttribute="bottom" constant="40" id="9R1-dw-108"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Wy0-Im-ty2" secondAttribute="trailing" constant="10" id="GCl-fN-cbc"/>
-                            <constraint firstItem="BMp-kd-t59" firstAttribute="top" secondItem="Wy0-Im-ty2" secondAttribute="bottom" constant="35" id="HGI-9f-igZ"/>
                             <constraint firstItem="YMv-Uw-yBN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O06-tn-KzW"/>
-                            <constraint firstItem="Wy0-Im-ty2" firstAttribute="top" secondItem="zTW-eQ-HtI" secondAttribute="bottom" constant="35" id="UoJ-zG-WsW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="U8a-QV-QhR" secondAttribute="trailing" constant="51" id="Xci-Du-UT7"/>
                             <constraint firstItem="U8a-QV-QhR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="XjI-H8-6td"/>
+                            <constraint firstItem="BMp-kd-t59" firstAttribute="top" secondItem="1ou-HW-Row" secondAttribute="bottom" constant="36" id="bQV-XG-0WH"/>
                             <constraint firstItem="YMv-Uw-yBN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iFG-fE-sGI"/>
+                            <constraint firstItem="1ou-HW-Row" firstAttribute="top" secondItem="zTW-eQ-HtI" secondAttribute="bottom" constant="32.5" id="iud-5V-XL2"/>
                             <constraint firstItem="YMv-Uw-yBN" firstAttribute="top" secondItem="U8a-QV-QhR" secondAttribute="bottom" constant="25" id="lhX-xQ-i7P"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Irb-DY-8Bi" secondAttribute="trailing" constant="10" id="oKL-RK-UCS"/>
                             <constraint firstItem="Irb-DY-8Bi" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="uTC-LH-XBQ"/>
                             <constraint firstItem="BMp-kd-t59" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uX7-SB-mpE"/>
-                            <constraint firstItem="Wy0-Im-ty2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="ujA-8M-Dmn"/>
                             <constraint firstItem="zTW-eQ-HtI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="wp1-1y-Zfo"/>
+                            <constraint firstItem="1ou-HW-Row" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zIz-7Q-1ay"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -94,8 +97,8 @@
                     <connections>
                         <outlet property="feedbackLabel" destination="Irb-DY-8Bi" id="0vc-cd-FTS"/>
                         <outlet property="numPoopsLabel" destination="YMv-Uw-yBN" id="B85-pf-Jll"/>
-                        <outlet property="phoneNumberTextField" destination="Wy0-Im-ty2" id="mf4-WY-eeR"/>
-                        <outlet property="poopButton" destination="BMp-kd-t59" id="FPc-Wu-za5"/>
+                        <outlet property="pickAFriendButton" destination="1ou-HW-Row" id="Nn3-Ro-AlB"/>
+                        <outlet property="poopButton" destination="BMp-kd-t59" id="x1B-PW-SQi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

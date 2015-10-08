@@ -30,8 +30,8 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     var timesToPoop = 1
     var numPoops = 1
-    var contactNumber = "6107512181"
-    var cleanedUpNumber = "6107512181"
+    var contactNumber = ""
+    var cleanedUpNumber = ""
     
     @IBAction func pickContact() {
         let contactPicker = CNContactPickerViewController()
@@ -43,45 +43,29 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     func contactPickerDidCancel(picker: CNContactPickerViewController) {
         print("Cancelled picking a contact")
     }
-    // contacts --> contact
-    // func contactPicker(picker: CNContactPickerViewController, didSelectContacts contacts: [CNContact]) {
+    
+    
     func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
-        
-            if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
-                contactNumber = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
-                print("\(contact.givenName) \(contact.familyName): \(contactNumber)")
-                
-                // update field
-                pickAFriendButton.setTitle("\(contact.givenName) \(contact.familyName)", forState: .Normal)
-                
-                let stringArray = contactNumber.componentsSeparatedByCharactersInSet(
-                    NSCharacterSet.decimalDigitCharacterSet().invertedSet)
-                cleanedUpNumber = NSArray(array: stringArray).componentsJoinedByString("")
-                
-
-            } else {
-                // Should never get here becuase: contactPicker.displayedPropertyKeys = [CNContactPhoneNumbersKey]
-                print("No phone numbers are available")
-            }
-        
+        if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
+            contactNumber = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
+            print("\(contact.givenName) \(contact.familyName): \(contactNumber)")
+            pickAFriendButton.setTitle("\(contact.givenName) \(contact.familyName)", forState: .Normal)
+            let stringArray = contactNumber.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+            cleanedUpNumber = NSArray(array: stringArray).componentsJoinedByString("")
+        } else {
+            print("No phone numbers are available")
+        }
     }
-
     
     @IBAction func sendSMS(sender: UIButton) {
-        
-       // ADD CHECK TO SEE IF THERE'S A PHONE NUMBER
+        // ADD CHECK TO SEE IF THERE'S A PHONE NUMBER
         numPoops = Int(timesToPoop.value)
-
         for _ in 1...numPoops {
             print("Cleaned up number is: \(cleanedUpNumber)")
             sendMessage(cleanedUpNumber)
             playFartSound(numPoops)
         }
-        
-        
     }
-    
-        
     
     func sendMessage(number:String){
         sendingFeedback()
@@ -109,7 +93,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
             } catch {
                 print("Error")
             }
-    }
+        }
     }
     
     func delay(delay:Double, closure:()->()) {
@@ -118,7 +102,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     func sendingFeedback(){
         poopButton.enabled = false
-        
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.5
         animation.repeatCount = 2 * Float(numPoops-1)
@@ -127,8 +110,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         animation.toValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y + 3))
         poopButton.layer.addAnimation(animation, forKey: "position")
         animateFeedbackMessage("pooping...", delay: Double(numPoops))
-        
-        
     }
     
     func sentFeedback(){
@@ -149,9 +130,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         UIView.animateWithDuration(0.7, delay:delay, options: UIViewAnimationOptions.CurveEaseOut, animations: {self.feedbackLabel.alpha = 0.0}, completion: nil)
     }
     
-    
-    
-    
     func pauseForSeconds(seconds:Int){
         
     }
@@ -166,7 +144,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         return task
     }
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -179,8 +156,4 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    
 }
-
