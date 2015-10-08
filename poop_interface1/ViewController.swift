@@ -40,7 +40,7 @@ class ViewController: UIViewController {
                 sendMessage(currentNum)
             }
             
-            playFartSound()
+            playFartSound(numPoops)
             
             // sendMessage(currentNum)
         } else{
@@ -56,15 +56,22 @@ class ViewController: UIViewController {
         sentFeedback()
     }
     
-    func playFartSound(){
+    func playFartSound(numPoops: Int){
         
-        
-        do {
-            self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fart", ofType: "mp3")!))
-            self.audioPlayer.play()
-        } catch {
-            print("Error")
+        for ii in 1...numPoops{
+            delay(Double(ii)) {
+                do {
+                    self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fart", ofType: "mp3")!))
+                    self.audioPlayer.play()
+                } catch {
+                    print("Error")
+                }
+            }
         }
+    }
+    
+    func delay(delay:Double, closure:()->()) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), closure)
     }
     
     func sendingFeedback(){
