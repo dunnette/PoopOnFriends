@@ -58,15 +58,6 @@
                                     <action selector="pickContact" destination="BYZ-38-t0r" eventType="touchUpInside" id="eDH-8Q-OZM"/>
                                 </connections>
                             </button>
-<<<<<<< HEAD
-=======
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who do you want to 💩?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTW-eQ-HtI">
-                                <rect key="frame" x="26" y="80" width="323" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
->>>>>>> origin/master
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="poops sent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jj-uz-dwO">
                                 <rect key="frame" x="287" y="640" width="72" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
