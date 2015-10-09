@@ -22,6 +22,12 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     var audioPlayer: AVAudioPlayer!
     var poopEmojiTemp = ""
     
+    //variables to count poops sent and remaining
+    @IBOutlet weak var sentLabel: UILabel!
+    @IBOutlet weak var remainingLabel: UILabel!
+    var sent = NSUserDefaults.standardUserDefaults().integerForKey("totalSent")
+    var remaining =  NSUserDefaults.standardUserDefaults().integerForKey("remaining")
+    
     @IBAction func numPoopsSlider(sender: UISlider) {
         timesToPoop = lroundf(sender.value)
         poopEmojiTemp=""
@@ -75,12 +81,34 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         // throb poop after contact selected
     }
     
+
+    func hasPoopsToSend() -> Bool {
+        if numPoops < remaining {
+            return true
+        }
+        return false
+    }
+    
+    func updatePoopCounts() {
+        remaining -= 1
+        sent += 1
+    }
+    
+    func updatePoopLabels() {
+        sentLabel.text = String(remaining) + " poops remaining"
+        remainingLabel.text = String(sent) + " poops sent"
+    }
+    
     @IBAction func sendSMS(sender: UIButton) {
         // ADD CHECK TO SEE IF THERE'S A PHONE NUMBER
         numPoops = Int(timesToPoop.value)
-        for _ in 1...numPoops {
-            sendMessage(cleanedUpNumber)
-            playFartSound(numPoops)
+        if hasPoopsToSend() {
+            for _ in 1...numPoops {
+                sendMessage(cleanedUpNumber)
+                updatePoopCounts()
+                playFartSound(numPoops)
+            }
+            updatePoopLabels()
         }
     }
     
@@ -172,6 +200,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         super.viewDidLoad()
         poopButton.enabled = false
         resetPoopSlider()
+        updatePoopLabels()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
