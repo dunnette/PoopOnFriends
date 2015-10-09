@@ -15,8 +15,6 @@
 		8156AFE41BC4CF5E00B94365 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8156AFE21BC4CF5E00B94365 /* Main.storyboard */; };
 		8156AFE61BC4CF5E00B94365 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8156AFE51BC4CF5E00B94365 /* Assets.xcassets */; };
 		8156AFE91BC4CF5E00B94365 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8156AFE71BC4CF5E00B94365 /* LaunchScreen.storyboard */; };
-		8156AFF41BC4CF5F00B94365 /* poop_interface1Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8156AFF31BC4CF5F00B94365 /* poop_interface1Tests.swift */; };
-		8156AFFF1BC4CF5F00B94365 /* poop_interface1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8156AFFE1BC4CF5F00B94365 /* poop_interface1UITests.swift */; };
 		8156B00F1BC4E87100B94365 /* fart.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 8156B00E1BC4E87100B94365 /* fart.mp3 */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -41,19 +39,15 @@
 		270395971BC70E1400DF09A4 /* flush.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = flush.mp3; sourceTree = "<group>"; };
 		810CF5F91BC716A200A6A2E1 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
 		810CF5FA1BC716A200A6A2E1 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = System/Library/Frameworks/ContactsUI.framework; sourceTree = SDKROOT; };
-		8156AFDB1BC4CF5E00B94365 /* Poop On Your Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poop On Your Friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8156AFDB1BC4CF5E00B94365 /* Poop On Your Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = "Poop On Your Friends.app"; path = "/Users/rdunnette/PoopOnFriends/build/Debug-iphoneos/Poop On Your Friends.app"; sourceTree = "<absolute>"; };
 		8156AFDE1BC4CF5E00B94365 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8156AFE01BC4CF5E00B94365 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8156AFE31BC4CF5E00B94365 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8156AFE51BC4CF5E00B94365 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8156AFE81BC4CF5E00B94365 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8156AFEA1BC4CF5F00B94365 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8156AFEF1BC4CF5F00B94365 /* Poop On Your Friends.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Poop On Your Friends.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8156AFF31BC4CF5F00B94365 /* poop_interface1Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = poop_interface1Tests.swift; sourceTree = "<group>"; };
-		8156AFF51BC4CF5F00B94365 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8156AFFA1BC4CF5F00B94365 /* Poop On Your Friends.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Poop On Your Friends.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8156AFFE1BC4CF5F00B94365 /* poop_interface1UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = poop_interface1UITests.swift; sourceTree = "<group>"; };
-		8156B0001BC4CF5F00B94365 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8156AFEF1BC4CF5F00B94365 /* Poop On Your Friends.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Poop On Your Friends.xctest"; path = "/Users/rdunnette/PoopOnFriends/build/Debug-iphoneos/Poop On Your Friends.xctest"; sourceTree = "<absolute>"; };
+		8156AFFA1BC4CF5F00B94365 /* Poop On Your Friends.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Poop On Your Friends.xctest"; path = "/Users/rdunnette/PoopOnFriends/build/Debug-iphoneos/Poop On Your Friends.xctest"; sourceTree = "<absolute>"; };
 		8156B00E1BC4E87100B94365 /* fart.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fart.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,20 +84,7 @@
 				810CF5F91BC716A200A6A2E1 /* Contacts.framework */,
 				810CF5FA1BC716A200A6A2E1 /* ContactsUI.framework */,
 				8156AFDD1BC4CF5E00B94365 /* Poop on your friends */,
-				8156AFF21BC4CF5F00B94365 /* Poop on your friends Tests */,
-				8156AFFD1BC4CF5F00B94365 /* Poop on your friends UITests */,
-				8156AFDC1BC4CF5E00B94365 /* Products */,
 			);
-			sourceTree = "<group>";
-		};
-		8156AFDC1BC4CF5E00B94365 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				8156AFDB1BC4CF5E00B94365 /* Poop On Your Friends.app */,
-				8156AFEF1BC4CF5F00B94365 /* Poop On Your Friends.xctest */,
-				8156AFFA1BC4CF5F00B94365 /* Poop On Your Friends.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		8156AFDD1BC4CF5E00B94365 /* Poop on your friends */ = {
@@ -119,26 +100,6 @@
 			);
 			name = "Poop on your friends";
 			path = poop_interface1;
-			sourceTree = "<group>";
-		};
-		8156AFF21BC4CF5F00B94365 /* Poop on your friends Tests */ = {
-			isa = PBXGroup;
-			children = (
-				8156AFF31BC4CF5F00B94365 /* poop_interface1Tests.swift */,
-				8156AFF51BC4CF5F00B94365 /* Info.plist */,
-			);
-			name = "Poop on your friends Tests";
-			path = poop_interface1Tests;
-			sourceTree = "<group>";
-		};
-		8156AFFD1BC4CF5F00B94365 /* Poop on your friends UITests */ = {
-			isa = PBXGroup;
-			children = (
-				8156AFFE1BC4CF5F00B94365 /* poop_interface1UITests.swift */,
-				8156B0001BC4CF5F00B94365 /* Info.plist */,
-			);
-			name = "Poop on your friends UITests";
-			path = poop_interface1UITests;
 			sourceTree = "<group>";
 		};
 		8156B0101BC4E87400B94365 /* SFX */ = {
@@ -238,7 +199,7 @@
 				Base,
 			);
 			mainGroup = 8156AFD21BC4CF5E00B94365;
-			productRefGroup = 8156AFDC1BC4CF5E00B94365 /* Products */;
+			productRefGroup = 8156AFD21BC4CF5E00B94365;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -292,7 +253,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8156AFF41BC4CF5F00B94365 /* poop_interface1Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +260,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8156AFFF1BC4CF5F00B94365 /* poop_interface1UITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
