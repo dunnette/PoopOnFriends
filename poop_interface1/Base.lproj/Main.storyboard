@@ -105,6 +105,7 @@
                         <outlet property="numPoopsLabel" destination="YMv-Uw-yBN" id="B85-pf-Jll"/>
                         <outlet property="pickAFriendButton" destination="1ou-HW-Row" id="Nn3-Ro-AlB"/>
                         <outlet property="poopButton" destination="BMp-kd-t59" id="x1B-PW-SQi"/>
+                        <outlet property="poopSlider" destination="U8a-QV-QhR" id="sYr-bu-YCz"/>
                         <outlet property="remainingLabel" destination="Xy8-kP-bzl" id="lW9-Nf-Roj"/>
                         <outlet property="sentLabel" destination="6Jj-uz-dwO" id="5fZ-VQ-fAg"/>
                     </connections>
