@@ -11,12 +11,8 @@ import AVFoundation
 import ContactsUI
 
 class ViewController: UIViewController, CNContactPickerDelegate {
-    
-    
-    
     @IBOutlet weak var pickAFriendButton: UIButton!
     @IBOutlet weak var poopButton: UIButton!
-    
     @IBOutlet weak var numPoopsLabel: UILabel!
     
     var audioPlayer: AVAudioPlayer!
@@ -25,8 +21,10 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     //variables to count poops sent and remaining
     @IBOutlet weak var sentLabel: UILabel!
     @IBOutlet weak var remainingLabel: UILabel!
+    @IBOutlet weak var poopSlider: UISlider!
     var sent = NSUserDefaults.standardUserDefaults().integerForKey("totalSent")
     var remaining =  NSUserDefaults.standardUserDefaults().integerForKey("remaining")
+    
     
     @IBAction func numPoopsSlider(sender: UISlider) {
         timesToPoop = lroundf(sender.value)
@@ -39,6 +37,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     func resetPoopSlider(){
         numPoopsLabel.text = "\u{1F4A9}"
+        poopSlider.value = 1.0
     }
     
     var timesToPoop = 1
@@ -174,7 +173,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         let delay = Double(numPoops) * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
-            self.animateFeedbackMessage("You \u{1F4A9} on \(self.firstName) \(self.lastName)", delay: 2)
+            self.animateFeedbackMessage("You \u{1F4A9} \(self.firstName) \(self.lastName)", delay: 2)
             self.poopButton.enabled = true
             // UIView.animateWithDuration(0.7, delay: delay, options: UIViewAnimationOptions.CurveEaseOut, animations: {self.numPoopsLabel.alpha = 0.0}, completion: nil)
             self.delayForSeconds(Double(2)) {
