@@ -248,6 +248,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         super.viewDidLoad()
         updatePoopLabels()
         poopButton.adjustsImageWhenHighlighted = false
+        
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

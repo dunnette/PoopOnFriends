@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     override init() {
         let userDefaults =
         ["totalSent" : 0,
-            "remaining": 10]
+            "remaining": 100]
         NSUserDefaults.standardUserDefaults().registerDefaults(userDefaults)
         super.init()
     }
