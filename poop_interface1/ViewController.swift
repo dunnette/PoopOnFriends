@@ -79,7 +79,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         // ADD CHECK TO SEE IF THERE'S A PHONE NUMBER
         numPoops = Int(timesToPoop.value)
         for _ in 1...numPoops {
-            print("Cleaned up number is: \(cleanedUpNumber)")
             sendMessage(cleanedUpNumber)
             playFartSound(numPoops)
         }
