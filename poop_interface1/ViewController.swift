@@ -18,6 +18,9 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     var audioPlayer: AVAudioPlayer!
     var poopEmojiTemp = ""
     
+    @IBAction func poopButtonTouchCancel(sender: AnyObject) {
+            poopButton.setImage(UIImage(named: "button.png"), forState: UIControlState.Normal)
+    }
     //variables to count poops sent and remaining
     @IBOutlet weak var sentLabel: UILabel!
     @IBOutlet weak var remainingLabel: UILabel!
@@ -25,6 +28,9 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     var sent = NSUserDefaults.standardUserDefaults().integerForKey("totalSent")
     var remaining =  NSUserDefaults.standardUserDefaults().integerForKey("remaining")
     
+    @IBAction func poopButtonTouchDown(sender: AnyObject) {
+        poopButton.setImage(UIImage(named: "button_depressed.png"), forState: UIControlState.Normal)
+    }
     
     @IBAction func numPoopsSlider(sender: UISlider) {
         timesToPoop = lroundf(sender.value)
@@ -117,10 +123,24 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         
     }
     
+    func validatePhone(phoneStr: String) -> Bool {
+        let regExp = "^\\d{10}$"
+        return NSPredicate(format: "SELF MATCHES %@", regExp).evaluateWithObject(phoneStr)
+    }
+    
     @IBAction func sendSMS(sender: UIButton) {
+        poopButton.setImage(UIImage(named: "button.png"), forState: UIControlState.Normal)
         // IF NO FRIEND PICKED, POP UP, ELSE DO THE REST
         if lastName == "" {
             pickContact()
+        } else if(!validatePhone(contactNumber)){
+        // ERROR
+            let alert = UIAlertController(title: "Oh nos!", message: "Invalid phone number", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
+            self.presentViewController(alert, animated: true, completion: nil)
+            lastName = ""
+            self.pickAFriendButton.setTitle("Pick a friend", forState: .Normal)
+        
         } else{
             numPoops = Int(timesToPoop.value)
             if hasPoopsToSend() {
@@ -227,6 +247,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         updatePoopLabels()
+        poopButton.adjustsImageWhenHighlighted = false
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {

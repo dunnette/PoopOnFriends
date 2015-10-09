@@ -24,16 +24,18 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMp-kd-t59">
-                                <rect key="frame" x="125" y="271" width="124" height="124"/>
+                                <rect key="frame" x="128" y="274" width="118" height="118"/>
                                 <state key="normal" image="button">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
+                                    <action selector="poopButtonTouchCancel:" destination="BYZ-38-t0r" eventType="touchDragExit" id="TcR-0g-K91"/>
+                                    <action selector="poopButtonTouchDown:" destination="BYZ-38-t0r" eventType="touchDragInside" id="DjL-Lz-Aqx"/>
                                     <action selector="sendSMS:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0P8-rY-wAb"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8a-QV-QhR">
-                                <rect key="frame" x="85" y="435" width="204" height="31"/>
+                                <rect key="frame" x="85" y="432" width="204" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="gSq-DH-tOz"/>
                                 </constraints>
@@ -44,13 +46,13 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💩" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMv-Uw-yBN">
-                                <rect key="frame" x="176" y="485" width="22" height="21.5"/>
+                                <rect key="frame" x="176" y="482" width="22" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ou-HW-Row">
-                                <rect key="frame" x="21" y="173" width="333" height="58"/>
+                                <rect key="frame" x="21" y="176" width="333" height="58"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="38"/>
                                 <state key="normal" title="Pick a friend">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -72,7 +74,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who do you want to 💩?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTW-eQ-HtI">
-                                <rect key="frame" x="89" y="112" width="197" height="21.5"/>
+                                <rect key="frame" x="89" y="115" width="197" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -134,6 +136,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="button" width="124" height="124"/>
+        <image name="button" width="118" height="118"/>
     </resources>
 </document>
