@@ -18,13 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLJ-Z9-rd1">
-                                <rect key="frame" x="-22" y="-39" width="0.0" height="0.0"/>
+                                <rect key="frame" x="-72" y="-58" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMp-kd-t59">
-                                <rect key="frame" x="125" y="320" width="124" height="124"/>
+                                <rect key="frame" x="125" y="319" width="124" height="124"/>
                                 <state key="normal" image="button">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -33,7 +33,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8a-QV-QhR">
-                                <rect key="frame" x="85.5" y="478.5" width="204" height="31"/>
+                                <rect key="frame" x="85" y="478" width="204" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="HbM-jA-qa6"/>
                                 </constraints>
@@ -43,13 +43,13 @@
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="💩" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMv-Uw-yBN">
-                                <rect key="frame" x="132.5" y="528.5" width="110" height="22"/>
+                                <rect key="frame" x="148" y="528" width="22" height="21.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ou-HW-Row">
-                                <rect key="frame" x="79" y="221.5" width="217" height="58"/>
+                                <rect key="frame" x="26" y="221" width="323" height="58"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="38"/>
                                 <state key="normal" title="Pick a friend">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -92,10 +92,12 @@
                             <constraint firstItem="U8a-QV-QhR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="XjI-H8-6td"/>
                             <constraint firstItem="Xy8-kP-bzl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="Z3H-YN-lPG"/>
                             <constraint firstItem="BMp-kd-t59" firstAttribute="top" secondItem="1ou-HW-Row" secondAttribute="bottom" constant="40" id="bQV-XG-0WH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1ou-HW-Row" secondAttribute="trailing" constant="10" id="fLH-yd-Gt5"/>
                             <constraint firstItem="YMv-Uw-yBN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iFG-fE-sGI"/>
                             <constraint firstItem="1ou-HW-Row" firstAttribute="top" secondItem="zTW-eQ-HtI" secondAttribute="bottom" constant="40" id="iud-5V-XL2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Jj-uz-dwO" secondAttribute="trailing" constant="20" id="lMY-of-V3d"/>
                             <constraint firstItem="YMv-Uw-yBN" firstAttribute="top" secondItem="U8a-QV-QhR" secondAttribute="bottom" constant="20" id="lhX-xQ-i7P"/>
+                            <constraint firstItem="1ou-HW-Row" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="ll5-Zy-C5r"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Jj-uz-dwO" secondAttribute="trailing" id="tAh-Qr-vu6"/>
                             <constraint firstItem="BMp-kd-t59" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uX7-SB-mpE"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xy8-kP-bzl" secondAttribute="bottom" constant="10" id="wih-2w-1cl"/>
@@ -104,6 +106,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="zIz-7Q-1ay"/>
                                 <exclude reference="Xci-Du-UT7"/>
                                 <exclude reference="XjI-H8-6td"/>
                                 <exclude reference="O06-tn-KzW"/>
@@ -127,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="311.5" y="407.5"/>
+            <point key="canvasLocation" x="233.5" y="251.5"/>
         </scene>
     </scenes>
     <resources>
