@@ -35,10 +35,16 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         numPoopsLabel.text = poopEmojiTemp
     }
     
-    func resetPoopSlider(){
-        numPoopsLabel.text = "\u{1F4A9}"
-        poopSlider.value = 1.0
+    func numPoopsSliderUpdate(){
+        timesToPoop = lroundf(poopSlider.value)
+        poopEmojiTemp=""
+        for var i = 0; i<timesToPoop; ++i{
+            poopEmojiTemp += "\u{1F4A9} "
+        }
+        print("working?")
+        numPoopsLabel.text = poopEmojiTemp
     }
+    
     
     var timesToPoop = 1
     var numPoops = 1
@@ -112,15 +118,19 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     }
     
     @IBAction func sendSMS(sender: UIButton) {
-        // ADD CHECK TO SEE IF THERE'S A PHONE NUMBER
-        numPoops = Int(timesToPoop.value)
-        if hasPoopsToSend() {
-            for _ in 1...numPoops {
-                sendMessage(cleanedUpNumber)
-                updatePoopCounts()
-                playFartSound(numPoops)
+        // IF NO FRIEND PICKED, POP UP, ELSE DO THE REST
+        if lastName == "" {
+            pickContact()
+        } else{
+            numPoops = Int(timesToPoop.value)
+            if hasPoopsToSend() {
+                for _ in 1...numPoops {
+                    sendMessage(cleanedUpNumber)
+                    updatePoopCounts()
+                    playFartSound(numPoops)
+                }
+                updatePoopLabels()
             }
-            updatePoopLabels()
         }
     }
     
@@ -143,12 +153,15 @@ class ViewController: UIViewController, CNContactPickerDelegate {
                 }
             }
         }
-        delayForSeconds(Double(numPoops)) {
-            do {
-                self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("flush", ofType: "mp3")!))
-                self.audioPlayer.play()
-            } catch {
-                print("Error")
+        
+        if(numPoops>1){
+            delayForSeconds(Double(numPoops)) {
+                do {
+                    self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("flush", ofType: "mp3")!))
+                    self.audioPlayer.play()
+                } catch {
+                    print("Error")
+                }
             }
         }
     }
@@ -176,14 +189,17 @@ class ViewController: UIViewController, CNContactPickerDelegate {
             self.animateFeedbackMessage("You \u{1F4A9} \(self.firstName) \(self.lastName)", delay: 2)
             self.poopButton.enabled = true
             // UIView.animateWithDuration(0.7, delay: delay, options: UIViewAnimationOptions.CurveEaseOut, animations: {self.numPoopsLabel.alpha = 0.0}, completion: nil)
-            self.delayForSeconds(Double(2)) {
-                do{
-                    
-                self.resetPoopSlider()
-            }
-            }
-        
+            self.pickAFriendButton.setTitle("Pick a friend", forState: .Normal)
+            self.lastName = ""
         }
+        let delay2 = Double(numPoops+2) * Double(NSEC_PER_SEC)
+        let time2 = dispatch_time(DISPATCH_TIME_NOW, Int64(delay2))
+        dispatch_after(time2, dispatch_get_main_queue()) {
+            self.numPoopsSliderUpdate()
+        }
+
+        
+        
     }
     
     func animateFeedbackMessage(message:String, delay: Double){
@@ -210,7 +226,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resetPoopSlider()
         updatePoopLabels()
     }
     
