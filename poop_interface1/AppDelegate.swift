@@ -12,6 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    override init() {
+        let userDefaults =
+        ["totalSent" : 0,
+            "remaining": 10]
+        NSUserDefaults.standardUserDefaults().registerDefaults(userDefaults)
+        super.init()
+    }
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
