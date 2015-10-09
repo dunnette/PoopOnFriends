@@ -18,35 +18,39 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FLJ-Z9-rd1">
-                                <rect key="frame" x="-7" y="93" width="0.0" height="0.0"/>
+                                <rect key="frame" x="-22" y="-39" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BMp-kd-t59">
-                                <rect key="frame" x="154.5" y="211" width="65" height="62"/>
-                                <state key="normal" image="poop">
+                                <rect key="frame" x="125" y="320" width="124" height="124"/>
+                                <state key="normal" image="button">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="sendSMS:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0P8-rY-wAb"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="U8a-QV-QhR">
-                                <rect key="frame" x="65" y="313" width="245" height="31"/>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8a-QV-QhR">
+                                <rect key="frame" x="85.5" y="478.5" width="204" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="HbM-jA-qa6"/>
+                                </constraints>
+                                <color key="minimumTrackTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="numPoopsSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="75l-aR-fUu"/>
                                 </connections>
                             </slider>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 poop" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMv-Uw-yBN">
-                                <rect key="frame" x="162" y="368" width="51.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="💩" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMv-Uw-yBN">
+                                <rect key="frame" x="132.5" y="528.5" width="110" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ou-HW-Row">
-                                <rect key="frame" x="118" y="134" width="138" height="41"/>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="24"/>
+                                <rect key="frame" x="79" y="221.5" width="217" height="58"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="38"/>
                                 <state key="normal" title="Pick a friend">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -54,48 +58,59 @@
                                     <action selector="pickContact" destination="BYZ-38-t0r" eventType="touchUpInside" id="eDH-8Q-OZM"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who do you want to 💩 on?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTW-eQ-HtI">
-                                <rect key="frame" x="26" y="80" width="323" height="21.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="poops sent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jj-uz-dwO">
-                                <rect key="frame" x="267" y="423" width="72" height="17"/>
+                                <rect key="frame" x="287" y="640" width="72" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="poops remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy8-kP-bzl">
-                                <rect key="frame" x="56" y="423" width="107.5" height="17"/>
+                                <rect key="frame" x="16" y="640" width="107.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Who do you want to 💩?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zTW-eQ-HtI">
+                                <rect key="frame" x="26" y="160" width="323" height="21.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="0.69411764705882351" green="0.4392156862745098" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.72549019607843135" green="0.50980392156862742" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="zTW-eQ-HtI" secondAttribute="trailing" constant="10" id="2gP-qQ-3I5"/>
-                            <constraint firstItem="zTW-eQ-HtI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="58z-64-E7n"/>
+                            <constraint firstItem="zTW-eQ-HtI" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="140" id="58z-64-E7n"/>
                             <constraint firstItem="Xy8-kP-bzl" firstAttribute="top" secondItem="U8a-QV-QhR" secondAttribute="bottom" constant="80" id="69s-b1-El0"/>
-                            <constraint firstItem="U8a-QV-QhR" firstAttribute="top" secondItem="BMp-kd-t59" secondAttribute="bottom" constant="40" id="9R1-dw-108"/>
+                            <constraint firstItem="U8a-QV-QhR" firstAttribute="top" secondItem="BMp-kd-t59" secondAttribute="bottom" constant="35" id="9R1-dw-108"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6Jj-uz-dwO" secondAttribute="bottom" constant="10" id="DAC-5G-be9"/>
+                            <constraint firstItem="U8a-QV-QhR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FjV-A5-0me"/>
                             <constraint firstItem="YMv-Uw-yBN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O06-tn-KzW"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Xy8-kP-bzl" secondAttribute="leading" id="P6K-ni-bux"/>
                             <constraint firstItem="6Jj-uz-dwO" firstAttribute="top" secondItem="U8a-QV-QhR" secondAttribute="bottom" constant="80" id="S8B-ST-9qs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="U8a-QV-QhR" secondAttribute="trailing" constant="51" id="Xci-Du-UT7"/>
                             <constraint firstItem="U8a-QV-QhR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="XjI-H8-6td"/>
                             <constraint firstItem="Xy8-kP-bzl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="Z3H-YN-lPG"/>
-                            <constraint firstItem="BMp-kd-t59" firstAttribute="top" secondItem="1ou-HW-Row" secondAttribute="bottom" constant="36" id="bQV-XG-0WH"/>
+                            <constraint firstItem="BMp-kd-t59" firstAttribute="top" secondItem="1ou-HW-Row" secondAttribute="bottom" constant="40" id="bQV-XG-0WH"/>
                             <constraint firstItem="YMv-Uw-yBN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iFG-fE-sGI"/>
-                            <constraint firstItem="1ou-HW-Row" firstAttribute="top" secondItem="zTW-eQ-HtI" secondAttribute="bottom" constant="32.5" id="iud-5V-XL2"/>
+                            <constraint firstItem="1ou-HW-Row" firstAttribute="top" secondItem="zTW-eQ-HtI" secondAttribute="bottom" constant="40" id="iud-5V-XL2"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6Jj-uz-dwO" secondAttribute="trailing" constant="20" id="lMY-of-V3d"/>
-                            <constraint firstItem="YMv-Uw-yBN" firstAttribute="top" secondItem="U8a-QV-QhR" secondAttribute="bottom" constant="25" id="lhX-xQ-i7P"/>
+                            <constraint firstItem="YMv-Uw-yBN" firstAttribute="top" secondItem="U8a-QV-QhR" secondAttribute="bottom" constant="20" id="lhX-xQ-i7P"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Jj-uz-dwO" secondAttribute="trailing" id="tAh-Qr-vu6"/>
                             <constraint firstItem="BMp-kd-t59" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uX7-SB-mpE"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xy8-kP-bzl" secondAttribute="bottom" constant="10" id="wih-2w-1cl"/>
                             <constraint firstItem="zTW-eQ-HtI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="10" id="wp1-1y-Zfo"/>
                             <constraint firstItem="1ou-HW-Row" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zIz-7Q-1ay"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Xci-Du-UT7"/>
+                                <exclude reference="XjI-H8-6td"/>
                                 <exclude reference="O06-tn-KzW"/>
+                                <exclude reference="69s-b1-El0"/>
+                                <exclude reference="Z3H-YN-lPG"/>
+                                <exclude reference="S8B-ST-9qs"/>
+                                <exclude reference="lMY-of-V3d"/>
                             </mask>
                         </variation>
                     </view>
@@ -116,6 +131,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="poop" width="65" height="62"/>
+        <image name="button" width="124" height="124"/>
     </resources>
 </document>
