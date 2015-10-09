@@ -133,7 +133,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         // IF NO FRIEND PICKED, POP UP, ELSE DO THE REST
         if lastName == "" {
             pickContact()
-        } else if(!validatePhone(contactNumber)){
+        } else if(validatePhone(contactNumber)){
         // ERROR
             let alert = UIAlertController(title: "Oh nos!", message: "Invalid phone number", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
