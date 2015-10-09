@@ -39,7 +39,8 @@
                                 </constraints>
                                 <color key="minimumTrackTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <action selector="numPoopsSlider:" destination="BYZ-38-t0r" eventType="valueChanged" id="75l-aR-fUu"/>
+                                    <action selector="numPoopsSlider:" destination="BYZ-38-t0r" eventType="touchDragInside" id="7b7-E6-Epq"/>
+                                    <action selector="numPoopsSlider:" destination="BYZ-38-t0r" eventType="touchDragOutside" id="dfd-ka-mmM"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="💩" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YMv-Uw-yBN">
