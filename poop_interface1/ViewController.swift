@@ -210,7 +210,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        poopButton.enabled = false
         resetPoopSlider()
         updatePoopLabels()
     }
