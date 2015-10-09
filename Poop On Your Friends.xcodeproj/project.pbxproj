@@ -390,7 +390,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = poop_interface1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jt.poop;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jt.poop-interface1";
 				PRODUCT_NAME = "Poop On Your Friends";
 				PROVISIONING_PROFILE = "";
 			};
@@ -404,7 +404,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = poop_interface1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jt.poop;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jt.poop-interface1";
 				PRODUCT_NAME = "Poop On Your Friends";
 				PROVISIONING_PROFILE = "";
 			};
