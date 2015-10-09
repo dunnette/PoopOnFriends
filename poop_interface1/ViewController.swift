@@ -12,27 +12,27 @@ import ContactsUI
 
 class ViewController: UIViewController, CNContactPickerDelegate {
     
+    
+    
     @IBOutlet weak var pickAFriendButton: UIButton!
     @IBOutlet weak var poopButton: UIButton!
     
     @IBOutlet weak var numPoopsLabel: UILabel!
     
     var audioPlayer: AVAudioPlayer!
+    var poopEmojiTemp = ""
+    
     @IBAction func numPoopsSlider(sender: UISlider) {
         timesToPoop = lroundf(sender.value)
-        if timesToPoop == 1{
-            numPoopsLabel.text = String(timesToPoop) + " poop"
-        } else{
-            numPoopsLabel.text = String(timesToPoop) + " poops"
+        poopEmojiTemp=""
+        for var i = 0; i<timesToPoop; ++i{
+            poopEmojiTemp += "\u{1F4A9} "
         }
+        numPoopsLabel.text = poopEmojiTemp
     }
     
     func resetPoopSlider(){
-        if timesToPoop == 1{
-            numPoopsLabel.text = String(timesToPoop) + " poop"
-        } else{
-            numPoopsLabel.text = String(timesToPoop) + " poops"
-        }
+        numPoopsLabel.text = "\u{1F4A9}"
     }
     
     var timesToPoop = 1
@@ -172,6 +172,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         poopButton.enabled = false
+        resetPoopSlider()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
