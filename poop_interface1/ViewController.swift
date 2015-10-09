@@ -83,9 +83,10 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
 
     func hasPoopsToSend() -> Bool {
-        if numPoops < remaining {
+        if numPoops <= remaining {
             return true
         }
+        showNoPoopsLeftAlert() 
         return false
     }
     
@@ -97,6 +98,18 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     func updatePoopLabels() {
         sentLabel.text = String(remaining) + " poops remaining"
         remainingLabel.text = String(sent) + " poops sent"
+    }
+    
+    //Alert that no poops left
+    func showNoPoopsLeftAlert() {
+        let alertController = UIAlertController(title: "No more poops!", message: "Please buy more poops to send", preferredStyle: .Alert)
+        
+        let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+        
+        
     }
     
     @IBAction func sendSMS(sender: UIButton) {
