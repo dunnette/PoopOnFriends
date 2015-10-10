@@ -48,6 +48,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     var firstName = ""
     var lastName = ""
     var audioPlayer: AVAudioPlayer!
+    var thePoopBank: poopBank = poopBank()
     
     @IBAction func pickContact() {
         let contactPicker = CNContactPickerViewController()
@@ -100,25 +101,11 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         animation.toValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y + 3))
         poopButton.layer.addAnimation(animation, forKey: "position")
     }
-    
 
-    func hasPoopsToSend() -> Bool {
-        if numPoops <= remaining {
-            return true
-        }
-        showNoPoopsLeftAlert() 
-        return false
-    }
-    
-    func updatePoopCounts(numberOfPoopsToSend: Int) {
-        remaining -= numberOfPoopsToSend
-        sent += numberOfPoopsToSend
-        updatePoopCountLabels()
-    }
     
     func updatePoopCountLabels() {
-        sentLabel.text = String(remaining) + " poops remaining"
-        remainingLabel.text = String(sent) + " poops sent"
+        sentLabel.text = String(thePoopBank.poopsRemaining) + " poops remaining"
+        remainingLabel.text = String(thePoopBank.poopsSent) + " poops sent"
     }
     
     //Alert that no poops left
@@ -138,8 +125,11 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         if lastName == "" {
             pickContact()
         } else {
-            if hasPoopsToSend() {
+            if thePoopBank.canSendPoops(Int(timesToPoop.value)) {
                 sendPoop(Int(timesToPoop.value))
+            }
+            else {
+                showNoPoopsLeftAlert()
             }
         }
     }
@@ -149,7 +139,8 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         print("Sending \(numberOfPoopsToSend) poops")
         triggerSendingUI()
         sendSMSMessage(cleanedUpNumber,numberOfPoopsToSend: numberOfPoopsToSend)
-        updatePoopCounts(numberOfPoopsToSend)
+        thePoopBank.sendPoops(numberOfPoopsToSend)
+        updatePoopCountLabels()
         playFartSound(numberOfPoopsToSend)
         triggerSentUI()
     }
