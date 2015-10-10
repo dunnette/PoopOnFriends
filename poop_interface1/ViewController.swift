@@ -15,9 +15,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     @IBOutlet weak var poopButton: UIButton!
     @IBOutlet weak var numPoopsLabel: UILabel!
     
-    var audioPlayer: AVAudioPlayer!
-    var poopEmojiTemp = ""
-    
     @IBAction func poopButtonTouchCancel(sender: AnyObject) {
             poopButton.setImage(UIImage(named: "button.png"), forState: UIControlState.Normal)
     }
@@ -33,30 +30,24 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     }
     
     @IBAction func numPoopsSlider(sender: UISlider) {
-        timesToPoop = lroundf(sender.value)
-        poopEmojiTemp=""
-        for var i = 0; i<timesToPoop; ++i{
-            poopEmojiTemp += "\u{1F4A9} "
-        }
-        numPoopsLabel.text = poopEmojiTemp
+        numPoopsSliderUpdate()
     }
     
     func numPoopsSliderUpdate(){
         timesToPoop = lroundf(poopSlider.value)
-        poopEmojiTemp=""
+        var poopEmojiTemp=""
         for var i = 0; i<timesToPoop; ++i{
             poopEmojiTemp += "\u{1F4A9} "
         }
-        print("working?")
         numPoopsLabel.text = poopEmojiTemp
     }
-    
     
     var timesToPoop = 1
     var numPoops = 1
     var cleanedUpNumber = ""
     var firstName = ""
     var lastName = ""
+    var audioPlayer: AVAudioPlayer!
     
     @IBAction func pickContact() {
         let contactPicker = CNContactPickerViewController()
