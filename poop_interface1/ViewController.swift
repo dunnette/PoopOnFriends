@@ -75,24 +75,31 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
             
             contactNumber = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
-            
-            if(validatePhone(contactNumber)){
-                let alert = UIAlertController(title: "Oh nos!", message: "Invalid phone number", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
-            } else {
-            firstName = contact.givenName
-            lastName = contact.familyName
-            print("\(contact.givenName) \(contact.familyName): \(contactNumber)")
-            pickAFriendButton.setTitle("\(firstName) \(lastName)", forState: .Normal)
             let stringArray = contactNumber.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
             cleanedUpNumber = NSArray(array: stringArray).componentsJoinedByString("")
-            poopButton.enabled = true
-                throbPoop() }
+            
+            if(validatePhone(cleanedUpNumber)){
+                firstName = contact.givenName
+                lastName = contact.familyName
+                print("\(contact.givenName) \(contact.familyName): \(contactNumber)")
+                pickAFriendButton.setTitle("\(firstName) \(lastName)", forState: .Normal)
+                poopButton.enabled = true
+                throbPoop()
+            } else {
+                let alert = UIAlertController(title: "Oh nos!", message: "Invalid phone number", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
+                picker.presentViewController(alert, animated: true, completion: nil)
+            }
 
         } else {
             print("No phone numbers are available")
         }
+    }
+    
+    func validatePhone(phoneStr: String) -> Bool {
+        let regExp = "^\\d{10}$"
+        let isValid = NSPredicate(format: "SELF MATCHES %@", regExp).evaluateWithObject(phoneStr)
+        return isValid
     }
     
     func throbPoop(){
@@ -129,11 +136,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         presentViewController(alertController, animated: true, completion: nil)
         
         
-    }
-    
-    func validatePhone(phoneStr: String) -> Bool {
-        let regExp = "^\\d{10}$"
-        return NSPredicate(format: "SELF MATCHES %@", regExp).evaluateWithObject(phoneStr)
     }
     
     @IBAction func sendSMS(sender: UIButton) {
