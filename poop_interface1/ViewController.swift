@@ -60,7 +60,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         print("Cancelled picking a contact")
     }
     
-    
     func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
         if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
             
@@ -74,7 +73,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
                 print("\(contact.givenName) \(contact.familyName): \(contactNumber)")
                 pickAFriendButton.setTitle("\(firstName) \(lastName)", forState: .Normal)
                 poopButton.enabled = true
-                throbPoop()
+                self.dismissViewControllerAnimated(true, completion: {self.throbPoop()})
             } else {
                 let alert = UIAlertController(title: "Oh nos!", message: "Invalid phone number", preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
@@ -93,7 +92,13 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     }
     
     func throbPoop(){
-        // throb poop after contact selected
+        let animation = CABasicAnimation(keyPath: "position")
+        animation.duration = 0.1
+        animation.repeatCount = 0
+        animation.autoreverses = true
+        animation.fromValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y - 3))
+        animation.toValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y + 3))
+        poopButton.layer.addAnimation(animation, forKey: "position")
     }
     
 
