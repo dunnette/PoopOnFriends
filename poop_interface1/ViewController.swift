@@ -54,7 +54,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     var timesToPoop = 1
     var numPoops = 1
-    var contactNumber = ""
     var cleanedUpNumber = ""
     var firstName = ""
     var lastName = ""
@@ -74,7 +73,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
         if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
             
-            contactNumber = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
+            let contactNumber = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
             let stringArray = contactNumber.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
             cleanedUpNumber = NSArray(array: stringArray).componentsJoinedByString("")
             
@@ -226,14 +225,10 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         // UIView.animateWithDuration(0.7, delay:delay, options: UIViewAnimationOptions.CurveEaseOut, animations: {self.numPoopsLabel.alpha = 0.0}, completion: nil)
     }
     
-
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         updatePoopCountLabels()
         poopButton.adjustsImageWhenHighlighted = false
-        
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
