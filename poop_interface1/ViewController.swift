@@ -73,7 +73,14 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
         if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
+            
             contactNumber = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
+            
+            if(validatePhone(contactNumber)){
+                let alert = UIAlertController(title: "Oh nos!", message: "Invalid phone number", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
+                self.presentViewController(alert, animated: true, completion: nil)
+            } else {
             firstName = contact.givenName
             lastName = contact.familyName
             print("\(contact.givenName) \(contact.familyName): \(contactNumber)")
@@ -81,7 +88,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
             let stringArray = contactNumber.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
             cleanedUpNumber = NSArray(array: stringArray).componentsJoinedByString("")
             poopButton.enabled = true
-            throbPoop()
+                throbPoop() }
 
         } else {
             print("No phone numbers are available")
@@ -101,12 +108,13 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         return false
     }
     
-    func updatePoopCounts() {
-        remaining -= 1
-        sent += 1
+    func updatePoopCounts(numberOfPoopsToSend: Int) {
+        remaining -= numberOfPoopsToSend
+        sent += numberOfPoopsToSend
+        updatePoopCountLabels()
     }
     
-    func updatePoopLabels() {
+    func updatePoopCountLabels() {
         sentLabel.text = String(remaining) + " poops remaining"
         remainingLabel.text = String(sent) + " poops sent"
     }
@@ -130,67 +138,37 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     @IBAction func sendSMS(sender: UIButton) {
         poopButton.setImage(UIImage(named: "button.png"), forState: UIControlState.Normal)
-        // IF NO FRIEND PICKED, POP UP, ELSE DO THE REST
         if lastName == "" {
             pickContact()
-        } else if(validatePhone(contactNumber)){
-        // ERROR
-            let alert = UIAlertController(title: "Oh nos!", message: "Invalid phone number", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Done", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-            lastName = ""
-            self.pickAFriendButton.setTitle("Pick a friend", forState: .Normal)
-        
-        } else{
-            numPoops = Int(timesToPoop.value)
+        } else {
             if hasPoopsToSend() {
-                for _ in 1...numPoops {
-                    sendMessage(cleanedUpNumber)
-                    updatePoopCounts()
-                    playFartSound(numPoops)
-                }
-                updatePoopLabels()
+                sendPoop(Int(timesToPoop.value))
             }
         }
     }
     
-    func sendMessage(number:String){
-        sendingFeedback()
-        let urlToSend = NSURL(string:"http://tellmewhich.com/poop.php?phone=" + number)
-        sendRequest(urlToSend!)
-        sentFeedback()
+    // Main fuction to trigger poop texts
+    func sendPoop(numberOfPoopsToSend: Int) {
+        print("Sending \(numberOfPoopsToSend) poops")
+        triggerSendingUI()
+        sendSMSMessage(cleanedUpNumber,numberOfPoopsToSend: numberOfPoopsToSend)
+        updatePoopCounts(numberOfPoopsToSend)
+        playFartSound(numberOfPoopsToSend)
+        triggerSentUI()
     }
     
-    func playFartSound(numPoops: Int){
-        
-        for ii in 0...(numPoops-1){
-            delayForSeconds(Double(ii)) {
-                do {
-                    self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("fart", ofType: "mp3")!))
-                    self.audioPlayer.play()
-                } catch {
-                    print("Error")
-                }
-            }
-        }
-        
-        if(numPoops>1){
-            delayForSeconds(Double(numPoops)) {
-                do {
-                    self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("flush", ofType: "mp3")!))
-                    self.audioPlayer.play()
-                } catch {
-                    print("Error")
-                }
-            }
+    func sendSMSMessage(number: String,numberOfPoopsToSend: Int){
+        for _ in 1...numberOfPoopsToSend {
+            let urlToSend = NSURL(string:"http://tellmewhich.com/poop.php?phone=" + number)
+            let request = NSMutableURLRequest(URL: urlToSend!)
+            request.HTTPMethod = "GET"
+            let session = NSURLSession.sharedSession()
+            let task = session.dataTaskWithRequest(request)
+            task.resume()
         }
     }
     
-    func delayForSeconds(delay:Double, closure:()->()) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(delay * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), closure)
-    }
-    
-    func sendingFeedback(){
+    func triggerSendingUI(){
         poopButton.enabled = false
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.5
@@ -202,7 +180,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         animateFeedbackMessage("pooping...", delay: Double(numPoops))
     }
     
-    func sentFeedback(){
+    func triggerSentUI(){
         let delay = Double(numPoops) * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
@@ -217,36 +195,41 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         dispatch_after(time2, dispatch_get_main_queue()) {
             self.numPoopsSliderUpdate()
         }
-
-        
-        
+    }
+    
+    func playFartSound(numPoops: Int){
+        for ii in 0...(numPoops-1){
+            playSoundInSeconds("fart", ofType: "mp3", inSeconds: ii)
+        }
+        if(numPoops>1){
+            playSoundInSeconds("flush", ofType: "mp3", inSeconds: numPoops)
+        }
+    }
+    
+    func playSoundInSeconds(fileName:String,ofType:String,inSeconds:Int) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(Double(inSeconds) * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), {
+            do {
+                self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: ofType)!))
+                self.audioPlayer.play()
+            } catch {
+                print("Error")
+            }
+        })
     }
     
     func animateFeedbackMessage(message:String, delay: Double){
-        
         self.numPoopsLabel.text = message
         self.numPoopsLabel.alpha = 1.0
         
         // UIView.animateWithDuration(0.7, delay:delay, options: UIViewAnimationOptions.CurveEaseOut, animations: {self.numPoopsLabel.alpha = 0.0}, completion: nil)
     }
     
-    func pauseForSeconds(seconds:Int){
-        
-    }
-    func sendRequest(url: NSURL) -> NSURLSessionTask {
-        let request = NSMutableURLRequest(URL: url)
-        request.HTTPMethod = "GET"
-        
-        let session = NSURLSession.sharedSession()
-        let task = session.dataTaskWithRequest(request)
-        task.resume()
-        
-        return task
-    }
+
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updatePoopLabels()
+        updatePoopCountLabels()
         poopButton.adjustsImageWhenHighlighted = false
         
     }
