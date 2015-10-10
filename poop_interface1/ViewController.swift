@@ -18,6 +18,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     @IBAction func poopButtonTouchCancel(sender: AnyObject) {
             poopButton.setImage(UIImage(named: "button.png"), forState: UIControlState.Normal)
     }
+    
     //variables to count poops sent and remaining
     @IBOutlet weak var sentLabel: UILabel!
     @IBOutlet weak var remainingLabel: UILabel!
@@ -104,20 +105,16 @@ class ViewController: UIViewController, CNContactPickerDelegate {
 
     
     func updatePoopCountLabels() {
-        sentLabel.text = String(thePoopBank.poopsRemaining) + " poops remaining"
-        remainingLabel.text = String(thePoopBank.poopsSent) + " poops sent"
+        sentLabel.text = String(thePoopBank.poopsRemaining) + " remaining today"
+        remainingLabel.text = String(thePoopBank.poopsSent) + " sent today"
     }
     
     //Alert that no poops left
     func showNoPoopsLeftAlert() {
-        let alertController = UIAlertController(title: "No more poops!", message: "Please buy more poops to send", preferredStyle: .Alert)
-        
+        let alertController = UIAlertController(title: "No more poops!", message: "Come back tomorrow!", preferredStyle: .Alert)
         let defaultAction = UIAlertAction(title: "OK", style: .Default, handler: nil)
         alertController.addAction(defaultAction)
-        
         presentViewController(alertController, animated: true, completion: nil)
-        
-        
     }
     
     @IBAction func sendSMS(sender: UIButton) {
