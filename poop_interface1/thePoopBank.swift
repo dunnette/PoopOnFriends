@@ -39,7 +39,7 @@ class poopBank: NSObject, NSCoding {
     
     override init() {
         poopsSent = 0
-        poopsRemaining = 100
+        poopsRemaining = 10000
         super.init()
     }
     

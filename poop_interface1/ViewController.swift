@@ -159,22 +159,15 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         animation.fromValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y - 3))
         animation.toValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y + 3))
         poopButton.layer.addAnimation(animation, forKey: "position")
-        animateFeedbackMessage("pooping...", delay: Double(numberOfPoopsToSend-1))
+        numPoopsLabel.text = "pooping..."
         
-        let delay = Double(numberOfPoopsToSend) * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-        dispatch_after(time, dispatch_get_main_queue()) {
-            self.animateFeedbackMessage("You \u{1F4A9} \(self.firstName) \(self.lastName)", delay: 2)
+        delayForSeconds(numberOfPoopsToSend) {
+            self.numPoopsLabel.text = "You \u{1F4A9} \(self.firstName) \(self.lastName)"
             self.poopButton.enabled = true
-            // UIView.animateWithDuration(0.7, delay: delay, options: UIViewAnimationOptions.CurveEaseOut, animations: {self.numPoopsLabel.alpha = 0.0}, completion: nil)
             self.pickAFriendButton.setTitle("Pick a friend", forState: .Normal)
             self.lastName = ""
         }
-        let delay2 = Double(numberOfPoopsToSend+2) * Double(NSEC_PER_SEC)
-        let time2 = dispatch_time(DISPATCH_TIME_NOW, Int64(delay2))
-        dispatch_after(time2, dispatch_get_main_queue()) {
-            self.numPoopsSliderUpdate()
-        }
+        delayForSeconds(numberOfPoopsToSend+5) {self.numPoopsSliderUpdate()}
     }
     
     func playFartSound(numPoops: Int){
@@ -186,22 +179,19 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         }
     }
     
+    func delayForSeconds(delayInSeconds:Int, toExecute:()->()) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(Double(delayInSeconds) * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), toExecute)
+    }
+    
     func playSoundInSeconds(fileName:String,ofType:String,inSeconds:Int) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW,Int64(Double(inSeconds) * Double(NSEC_PER_SEC))),dispatch_get_main_queue(), {
+        delayForSeconds(inSeconds) {
             do {
                 self.audioPlayer =  try AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource(fileName, ofType: ofType)!))
                 self.audioPlayer.play()
             } catch {
                 print("Error")
             }
-        })
-    }
-    
-    func animateFeedbackMessage(message:String, delay: Double){
-        self.numPoopsLabel.text = message
-        self.numPoopsLabel.alpha = 1.0
-        
-        // UIView.animateWithDuration(0.7, delay:delay, options: UIViewAnimationOptions.CurveEaseOut, animations: {self.numPoopsLabel.alpha = 0.0}, completion: nil)
+        }
     }
     
     override func viewDidLoad() {
