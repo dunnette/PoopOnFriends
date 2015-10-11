@@ -11,18 +11,26 @@ import AVFoundation
 import ContactsUI
 
 class ViewController: UIViewController, CNContactPickerDelegate {
+    
+    var timesToPoop = 1
+    var cleanedUpNumber = ""
+    var firstName = ""
+    var lastName = ""
+    var audioPlayer: AVAudioPlayer!
+    var thePoopBank: poopBank
+    
     @IBOutlet weak var pickAFriendButton: UIButton!
     @IBOutlet weak var poopButton: UIButton!
     @IBOutlet weak var numPoopsLabel: UILabel!
+    @IBOutlet weak var sentLabel: UILabel!
+    @IBOutlet weak var remainingLabel: UILabel!
+    @IBOutlet weak var poopSlider: UISlider!
     
     @IBAction func poopButtonTouchCancel(sender: AnyObject) {
             poopButton.setImage(UIImage(named: "button.png"), forState: UIControlState.Normal)
     }
     
-    //variables to count poops sent and remaining
-    @IBOutlet weak var sentLabel: UILabel!
-    @IBOutlet weak var remainingLabel: UILabel!
-    @IBOutlet weak var poopSlider: UISlider!
+
     
     @IBAction func poopButtonTouchDown(sender: AnyObject) {
         poopButton.setImage(UIImage(named: "button_depressed.png"), forState: UIControlState.Normal)
@@ -41,23 +49,13 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         numPoopsLabel.text = poopEmojiTemp
     }
     
-    var timesToPoop = 1
-    var cleanedUpNumber = ""
-    var firstName = ""
-    var lastName = ""
-    var audioPlayer: AVAudioPlayer!
-    var thePoopBank: poopBank
-    
     @IBAction func pickContact() {
         let contactPicker = CNContactPickerViewController()
         contactPicker.delegate = self
         contactPicker.predicateForEnablingContact = NSPredicate(format:"phoneNumbers.@count > 0", argumentArray: nil)
         self.presentViewController(contactPicker, animated: true, completion: nil)
     }
-    
-    func contactPickerDidCancel(picker: CNContactPickerViewController) {
-        print("Cancelled picking a contact")
-    }
+
     
     func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
         if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
@@ -120,7 +118,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
             pickContact()
         } else {
             if thePoopBank.canSendPoops(Int(timesToPoop.value)) {
-                sendPoop(Int(timesToPoop.value))
+                sendPoop(Int(timesToPoop.value),phoneNumber:cleanedUpNumber)
             }
             else {
                 showNoPoopsLeftAlert()
@@ -129,10 +127,10 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     }
     
     // Main fuction to trigger poop texts
-    func sendPoop(numberOfPoopsToSend: Int) {
+    func sendPoop(numberOfPoopsToSend: Int, phoneNumber: String) {
         print("Sending \(numberOfPoopsToSend) poops")
         triggerSendingUI(numberOfPoopsToSend)
-        sendSMSMessage(cleanedUpNumber,numberOfPoopsToSend: numberOfPoopsToSend)
+        sendSMSMessage(phoneNumber,numberOfPoopsToSend: numberOfPoopsToSend)
         thePoopBank.sendPoops(numberOfPoopsToSend)
         savePoopBank()
         updatePoopCountLabels()
