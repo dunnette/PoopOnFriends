@@ -15,8 +15,17 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="poop" translatesAutoresizingMaskIntoConstraints="NO" id="nrg-n5-iEx">
+                                <rect key="frame" x="267.5" y="269" width="65" height="62"/>
+                            </imageView>
+                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.60000002379999995" green="0.40000000600000002" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="nrg-n5-iEx" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="l4M-xC-5dU"/>
+                            <constraint firstItem="nrg-n5-iEx" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="xAW-lE-pho"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +33,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="poop" width="65" height="62"/>
+    </resources>
 </document>
