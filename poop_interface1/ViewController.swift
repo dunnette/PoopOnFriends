@@ -154,8 +154,8 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         animation.duration = 0.5
         animation.repeatCount = Float(numberOfPoopsToSend)
         animation.autoreverses = true
-        animation.fromValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y - 3))
-        animation.toValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y + 3))
+        animation.fromValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y))
+        animation.toValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y + 10))
         poopButton.layer.addAnimation(animation, forKey: "position")
         numPoopsLabel.text = "pooping..."
         
