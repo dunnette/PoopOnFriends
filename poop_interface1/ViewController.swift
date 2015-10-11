@@ -23,14 +23,11 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     @IBOutlet weak var poopButton: UIButton!
     @IBOutlet weak var numPoopsLabel: UILabel!
     @IBOutlet weak var sentLabel: UILabel!
-    @IBOutlet weak var remainingLabel: UILabel!
     @IBOutlet weak var poopSlider: UISlider!
     
     @IBAction func poopButtonTouchCancel(sender: AnyObject) {
             poopButton.setImage(UIImage(named: "button.png"), forState: UIControlState.Normal)
     }
-    
-
     
     @IBAction func poopButtonTouchDown(sender: AnyObject) {
         poopButton.setImage(UIImage(named: "button_depressed.png"), forState: UIControlState.Normal)
@@ -100,8 +97,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
 
     
     func updatePoopCountLabels() {
-        sentLabel.text = String(thePoopBank.poopsRemaining) + " \u{1F4A9} remaining today"
-        remainingLabel.text = String(thePoopBank.poopsSent) + " \u{1F4A9} sent today"
+        sentLabel.text = String(thePoopBank.poopsSent) + " \u{1F4A9} sent"
     }
     
     //Alert that no poops left
@@ -128,24 +124,26 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     // Main fuction to trigger poop texts
     func sendPoop(numberOfPoopsToSend: Int, phoneNumber: String) {
-        print("Sending \(numberOfPoopsToSend) poops")
         triggerSendingUI(numberOfPoopsToSend)
-        sendSMSMessage(phoneNumber,numberOfPoopsToSend: numberOfPoopsToSend)
-        thePoopBank.sendPoops(numberOfPoopsToSend)
+        for ii in 1...numberOfPoopsToSend {
+            delayForSeconds(ii-1)
+                {
+                    self.sendSMSMessage(phoneNumber)
+                    self.thePoopBank.sendPoops(1)
+                    self.updatePoopCountLabels()
+            }
+        }
         savePoopBank()
-        updatePoopCountLabels()
         playFartSound(numberOfPoopsToSend)
     }
     
-    func sendSMSMessage(number: String,numberOfPoopsToSend: Int){
-        for _ in 1...numberOfPoopsToSend {
+    func sendSMSMessage(number: String){
             let urlToSend = NSURL(string:"http://tellmewhich.com/poop.php?phone=" + number)
             let request = NSMutableURLRequest(URL: urlToSend!)
             request.HTTPMethod = "GET"
             let session = NSURLSession.sharedSession()
             let task = session.dataTaskWithRequest(request)
             task.resume()
-        }
     }
     
     func triggerSendingUI(numberOfPoopsToSend: Int){

@@ -62,13 +62,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="poops sent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Jj-uz-dwO">
-                                <rect key="frame" x="287" y="640" width="72" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="poops remaining" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy8-kP-bzl">
-                                <rect key="frame" x="16" y="640" width="107.5" height="17"/>
+                                <rect key="frame" x="152" y="640" width="72" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="0.80000000000000004" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -83,39 +77,23 @@
                         <color key="backgroundColor" red="0.72549019607843135" green="0.50980392156862742" blue="0.33725490196078434" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="BMp-kd-t59" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3Rq-tO-aFY"/>
-                            <constraint firstItem="Xy8-kP-bzl" firstAttribute="top" secondItem="U8a-QV-QhR" secondAttribute="bottom" constant="80" id="69s-b1-El0"/>
                             <constraint firstItem="BMp-kd-t59" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="7Yp-72-7rn"/>
                             <constraint firstItem="YMv-Uw-yBN" firstAttribute="top" secondItem="U8a-QV-QhR" secondAttribute="bottom" constant="20" id="B85-lT-eoQ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6Jj-uz-dwO" secondAttribute="bottom" constant="10" id="DAC-5G-be9"/>
                             <constraint firstItem="1ou-HW-Row" firstAttribute="top" secondItem="zTW-eQ-HtI" secondAttribute="bottom" constant="40" id="DJi-kv-pBA"/>
                             <constraint firstItem="YMv-Uw-yBN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="J3V-BK-I56"/>
-                            <constraint firstItem="YMv-Uw-yBN" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="O06-tn-KzW"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Xy8-kP-bzl" secondAttribute="leading" id="P6K-ni-bux"/>
                             <constraint firstItem="6Jj-uz-dwO" firstAttribute="top" secondItem="U8a-QV-QhR" secondAttribute="bottom" constant="80" id="S8B-ST-9qs"/>
                             <constraint firstItem="U8a-QV-QhR" firstAttribute="top" secondItem="BMp-kd-t59" secondAttribute="bottom" constant="40" id="SIv-yA-1PO"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="U8a-QV-QhR" secondAttribute="trailing" constant="51" id="Xci-Du-UT7"/>
-                            <constraint firstItem="U8a-QV-QhR" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="XjI-H8-6td"/>
-                            <constraint firstItem="Xy8-kP-bzl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="Z3H-YN-lPG"/>
                             <constraint firstItem="U8a-QV-QhR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ejD-IB-cMf"/>
                             <constraint firstItem="BMp-kd-t59" firstAttribute="top" secondItem="1ou-HW-Row" secondAttribute="bottom" constant="40" id="hID-J8-Uzs"/>
                             <constraint firstItem="1ou-HW-Row" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="5" id="i5w-AQ-5Ex"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6Jj-uz-dwO" secondAttribute="trailing" constant="20" id="lMY-of-V3d"/>
                             <constraint firstItem="zTW-eQ-HtI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nhV-bc-bkW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1ou-HW-Row" secondAttribute="trailing" constant="5" id="qg8-Rb-zSh"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="6Jj-uz-dwO" secondAttribute="trailing" id="tAh-Qr-vu6"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xy8-kP-bzl" secondAttribute="bottom" constant="10" id="wih-2w-1cl"/>
-                            <constraint firstItem="1ou-HW-Row" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zIz-7Q-1ay"/>
+                            <constraint firstItem="6Jj-uz-dwO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="x7N-CU-gBd"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="zIz-7Q-1ay"/>
-                                <exclude reference="Xci-Du-UT7"/>
-                                <exclude reference="XjI-H8-6td"/>
-                                <exclude reference="O06-tn-KzW"/>
-                                <exclude reference="69s-b1-El0"/>
-                                <exclude reference="Z3H-YN-lPG"/>
                                 <exclude reference="S8B-ST-9qs"/>
-                                <exclude reference="lMY-of-V3d"/>
                             </mask>
                         </variation>
                     </view>
@@ -126,7 +104,6 @@
                         <outlet property="pickAFriendButton" destination="1ou-HW-Row" id="Nn3-Ro-AlB"/>
                         <outlet property="poopButton" destination="BMp-kd-t59" id="x1B-PW-SQi"/>
                         <outlet property="poopSlider" destination="U8a-QV-QhR" id="sYr-bu-YCz"/>
-                        <outlet property="remainingLabel" destination="Xy8-kP-bzl" id="lW9-Nf-Roj"/>
                         <outlet property="sentLabel" destination="6Jj-uz-dwO" id="5fZ-VQ-fAg"/>
                     </connections>
                 </viewController>
