@@ -42,7 +42,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     }
     
     var timesToPoop = 1
-    var numPoops = 1
     var cleanedUpNumber = ""
     var firstName = ""
     var lastName = ""
@@ -103,8 +102,8 @@ class ViewController: UIViewController, CNContactPickerDelegate {
 
     
     func updatePoopCountLabels() {
-        sentLabel.text = String(thePoopBank.poopsRemaining) + " remaining today"
-        remainingLabel.text = String(thePoopBank.poopsSent) + " sent today"
+        sentLabel.text = String(thePoopBank.poopsRemaining) + " \u{1F4A9} remaining today"
+        remainingLabel.text = String(thePoopBank.poopsSent) + " \u{1F4A9} sent today"
     }
     
     //Alert that no poops left
@@ -132,13 +131,12 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     // Main fuction to trigger poop texts
     func sendPoop(numberOfPoopsToSend: Int) {
         print("Sending \(numberOfPoopsToSend) poops")
-        triggerSendingUI()
+        triggerSendingUI(numberOfPoopsToSend)
         sendSMSMessage(cleanedUpNumber,numberOfPoopsToSend: numberOfPoopsToSend)
         thePoopBank.sendPoops(numberOfPoopsToSend)
         savePoopBank()
         updatePoopCountLabels()
         playFartSound(numberOfPoopsToSend)
-        triggerSentUI()
     }
     
     func sendSMSMessage(number: String,numberOfPoopsToSend: Int){
@@ -152,20 +150,18 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         }
     }
     
-    func triggerSendingUI(){
+    func triggerSendingUI(numberOfPoopsToSend: Int){
         poopButton.enabled = false
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.5
-        animation.repeatCount = 2 * Float(numPoops-1)
+        animation.repeatCount = Float(numberOfPoopsToSend)
         animation.autoreverses = true
         animation.fromValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y - 3))
         animation.toValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y + 3))
         poopButton.layer.addAnimation(animation, forKey: "position")
-        animateFeedbackMessage("pooping...", delay: Double(numPoops))
-    }
-    
-    func triggerSentUI(){
-        let delay = Double(numPoops) * Double(NSEC_PER_SEC)
+        animateFeedbackMessage("pooping...", delay: Double(numberOfPoopsToSend-1))
+        
+        let delay = Double(numberOfPoopsToSend) * Double(NSEC_PER_SEC)
         let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
         dispatch_after(time, dispatch_get_main_queue()) {
             self.animateFeedbackMessage("You \u{1F4A9} \(self.firstName) \(self.lastName)", delay: 2)
@@ -174,7 +170,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
             self.pickAFriendButton.setTitle("Pick a friend", forState: .Normal)
             self.lastName = ""
         }
-        let delay2 = Double(numPoops+2) * Double(NSEC_PER_SEC)
+        let delay2 = Double(numberOfPoopsToSend+2) * Double(NSEC_PER_SEC)
         let time2 = dispatch_time(DISPATCH_TIME_NOW, Int64(delay2))
         dispatch_after(time2, dispatch_get_main_queue()) {
             self.numPoopsSliderUpdate()
