@@ -138,12 +138,13 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     }
     
     func sendSMSMessage(number: String){
-            let urlToSend = NSURL(string:"http://tellmewhich.com/poop.php?phone=" + number)
-            let request = NSMutableURLRequest(URL: urlToSend!)
-            request.HTTPMethod = "GET"
-            let session = NSURLSession.sharedSession()
-            let task = session.dataTaskWithRequest(request)
-            task.resume()
+        let urlToSend = NSURL(string:"http://tellmewhich.com/poop.php?phone=" + number)
+        let request = NSMutableURLRequest(URL: urlToSend!)
+        request.HTTPMethod = "GET"
+        let session = NSURLSession.sharedSession()
+        let task = session.dataTaskWithRequest(request)
+        task.resume()
+        task
     }
     
     func triggerSendingUI(numberOfPoopsToSend: Int){
