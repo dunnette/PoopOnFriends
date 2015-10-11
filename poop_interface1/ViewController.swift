@@ -23,8 +23,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     @IBOutlet weak var sentLabel: UILabel!
     @IBOutlet weak var remainingLabel: UILabel!
     @IBOutlet weak var poopSlider: UISlider!
-    var sent = NSUserDefaults.standardUserDefaults().integerForKey("totalSent")
-    var remaining =  NSUserDefaults.standardUserDefaults().integerForKey("remaining")
     
     @IBAction func poopButtonTouchDown(sender: AnyObject) {
         poopButton.setImage(UIImage(named: "button_depressed.png"), forState: UIControlState.Normal)
@@ -49,7 +47,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     var firstName = ""
     var lastName = ""
     var audioPlayer: AVAudioPlayer!
-    var thePoopBank: poopBank = poopBank()
+    var thePoopBank: poopBank
     
     @IBAction func pickContact() {
         let contactPicker = CNContactPickerViewController()
@@ -137,6 +135,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         triggerSendingUI()
         sendSMSMessage(cleanedUpNumber,numberOfPoopsToSend: numberOfPoopsToSend)
         thePoopBank.sendPoops(numberOfPoopsToSend)
+        savePoopBank()
         updatePoopCountLabels()
         playFartSound(numberOfPoopsToSend)
         triggerSentUI()
@@ -222,5 +221,41 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    
+    func documentsDirectory() -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        return paths[0]
+    }
+    
+    func dataFilePath() -> String {
+            return (documentsDirectory() as NSString).stringByAppendingPathComponent("userStats.plist")
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        thePoopBank = poopBank()
+        super.init(coder: aDecoder)
+        loadPoopBank()
+    }
+    
+    func savePoopBank() {
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        archiver.encodeObject(thePoopBank, forKey: "PoopBank")
+        archiver.finishEncoding()
+        data.writeToFile(dataFilePath(), atomically: true)
+    }
+    
+    func loadPoopBank() {
+            let path = dataFilePath()
+            if NSFileManager.defaultManager().fileExistsAtPath(path) {
+            if let data = NSData(contentsOfFile: path) {
+            let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
+            thePoopBank = unarchiver.decodeObjectForKey("PoopBank") as! poopBank
+            unarchiver.finishDecoding()
+            }
+            }
     }
 }
