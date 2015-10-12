@@ -45,13 +45,12 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         self.presentViewController(contactPicker, animated: true, completion: nil)
     }
     
-    @IBAction func Repoop() {
+    @IBAction func rePoop() {
         sendPoop(1,phoneNumber:cleanedUpNumber)
     }
     
     func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
         if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
-            
             let contactNumber = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
             let stringArray = contactNumber.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
             cleanedUpNumber = NSArray(array: stringArray).componentsJoinedByString("")
@@ -59,7 +58,6 @@ class ViewController: UIViewController, CNContactPickerDelegate {
             if(validatePhone(cleanedUpNumber)){
                 firstName = contact.givenName
                 lastName = contact.familyName
-                print("\(contact.givenName) \(contact.familyName): \(contactNumber)")
                 pickAFriendButton.setTitle("\(firstName)", forState: .Normal)
                 poopButton.enabled = true
                 self.dismissViewControllerAnimated(true, completion: {self.throbPoop()})
