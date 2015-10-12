@@ -44,7 +44,10 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         contactPicker.predicateForEnablingContact = NSPredicate(format:"phoneNumbers.@count > 0", argumentArray: nil)
         self.presentViewController(contactPicker, animated: true, completion: nil)
     }
-
+    
+    @IBAction func Repoop() {
+        sendPoop(1,phoneNumber:cleanedUpNumber)
+    }
     
     func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
         if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
