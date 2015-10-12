@@ -24,15 +24,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     @IBOutlet weak var numPoopsLabel: UILabel!
     @IBOutlet weak var sentLabel: UILabel!
     @IBOutlet weak var poopSlider: UISlider!
-    
-    @IBAction func poopButtonTouchCancel(sender: AnyObject) {
-            poopButton.setImage(UIImage(named: "button.png"), forState: UIControlState.Normal)
-    }
-    
-    @IBAction func poopButtonTouchDown(sender: AnyObject) {
-        poopButton.setImage(UIImage(named: "button_depressed.png"), forState: UIControlState.Normal)
-    }
-    
+        
     @IBAction func numPoopsSlider(sender: UISlider) {
         numPoopsSliderUpdate()
     }
@@ -65,7 +57,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
                 firstName = contact.givenName
                 lastName = contact.familyName
                 print("\(contact.givenName) \(contact.familyName): \(contactNumber)")
-                pickAFriendButton.setTitle("\(firstName) \(lastName)", forState: .Normal)
+                pickAFriendButton.setTitle("\(firstName)", forState: .Normal)
                 poopButton.enabled = true
                 self.dismissViewControllerAnimated(true, completion: {self.throbPoop()})
             } else {
@@ -88,10 +80,10 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     func throbPoop(){
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = 0.1
-        animation.repeatCount = 0
+        animation.repeatCount = 2
         animation.autoreverses = true
-        animation.fromValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y - 3))
-        animation.toValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y + 3))
+        animation.fromValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y))
+        animation.toValue = NSValue(CGPoint: CGPointMake(poopButton.center.x, poopButton.center.y - 3))
         poopButton.layer.addAnimation(animation, forKey: "position")
     }
 
@@ -108,7 +100,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
         presentViewController(alertController, animated: true, completion: nil)
     }
     
-    @IBAction func sendSMS(sender: UIButton) {
+    @IBAction func poopButtonPress(sender: UIButton) {
         poopButton.setImage(UIImage(named: "button.png"), forState: UIControlState.Normal)
         if lastName == "" {
             pickContact()

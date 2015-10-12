@@ -29,9 +29,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="poopButtonTouchCancel:" destination="BYZ-38-t0r" eventType="touchDragExit" id="TcR-0g-K91"/>
-                                    <action selector="poopButtonTouchDown:" destination="BYZ-38-t0r" eventType="touchDragInside" id="DjL-Lz-Aqx"/>
-                                    <action selector="sendSMS:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0P8-rY-wAb"/>
+                                    <action selector="poopButtonPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="W2g-c4-zQP"/>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="5" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U8a-QV-QhR">
