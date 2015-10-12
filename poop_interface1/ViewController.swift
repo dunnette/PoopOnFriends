@@ -75,7 +75,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     }
     
     func validatePhone(phoneStr: String) -> Bool {
-        let regExp = "^\\d{10}$"
+        let regExp = "^1?\\d{10}$"
         let isValid = NSPredicate(format: "SELF MATCHES %@", regExp).evaluateWithObject(phoneStr)
         return isValid
     }
