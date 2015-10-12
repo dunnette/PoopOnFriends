@@ -51,9 +51,25 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     func contactPicker(picker: CNContactPickerViewController, didSelectContact contact: CNContact) {
         if contact.isKeyAvailable(CNContactPhoneNumbersKey) {
-            let contactNumber = (contact.phoneNumbers[0].value as! CNPhoneNumber).stringValue
-            let stringArray = contactNumber.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
-            cleanedUpNumber = NSArray(array: stringArray).componentsJoinedByString("")
+
+            // Really hacky
+            var foundBestMatch = false
+            var ii = 0
+            let numberWaterfall = ["iPhone","_$!<Mobile>!$_","_$!<Home>!$_",contact.phoneNumbers[0].label]
+            while foundBestMatch == false {
+                for entry: CNLabeledValue in contact.phoneNumbers {
+                    if entry.label == numberWaterfall[ii] {
+                    let contactNumber = (entry.value as! CNPhoneNumber).stringValue
+                        let stringArray = contactNumber.componentsSeparatedByCharactersInSet(NSCharacterSet.decimalDigitCharacterSet().invertedSet)
+                        cleanedUpNumber = NSArray(array: stringArray).componentsJoinedByString("")
+                    foundBestMatch = true
+                        break
+                    }
+            }
+                ii++
+                
+            }
+
             
             if(validatePhone(cleanedUpNumber)){
                 firstName = contact.givenName
