@@ -38,8 +38,8 @@
 
 /* Begin PBXFileReference section */
 		270395971BC70E1400DF09A4 /* flush.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = flush.mp3; sourceTree = "<group>"; };
-		271997B01BCAF0F500154A2B /* Poop On Your Friends.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Poop On Your Friends.xctest"; path = "/Users/rdunnette/PoopOnFriends/build/Debug-iphoneos/Poop On Your Friends.xctest"; sourceTree = "<absolute>"; };
-		271997B11BCAF0F500154A2B /* Poop On Your Friends.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "Poop On Your Friends.xctest"; path = "/Users/rdunnette/PoopOnFriends/build/Debug-iphoneos/Poop On Your Friends.xctest"; sourceTree = "<absolute>"; };
+		2711CBB31BCAF26E00F26198 /* Poop On Your Friends.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Poop On Your Friends.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2711CBB41BCAF26E00F26198 /* Poop On Your Friends.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Poop On Your Friends.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		27D682831BCAE85900FED06D /* thePoopBank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = thePoopBank.swift; sourceTree = "<group>"; };
 		35D6732B1BC740EF00614BE3 /* Poop On Your Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poop On Your Friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		810CF5F91BC716A200A6A2E1 /* Contacts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Contacts.framework; path = System/Library/Frameworks/Contacts.framework; sourceTree = SDKROOT; };
@@ -87,6 +87,8 @@
 				810CF5FA1BC716A200A6A2E1 /* ContactsUI.framework */,
 				8156AFDD1BC4CF5E00B94365 /* Poop on your friends */,
 				35D6732B1BC740EF00614BE3 /* Poop On Your Friends.app */,
+				2711CBB31BCAF26E00F26198 /* Poop On Your Friends.xctest */,
+				2711CBB41BCAF26E00F26198 /* Poop On Your Friends.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,7 +152,7 @@
 			);
 			name = "Poop On Your FriendsTests";
 			productName = poop_interface1Tests;
-			productReference = 271997B01BCAF0F500154A2B /* Poop On Your Friends.xctest */;
+			productReference = 2711CBB31BCAF26E00F26198 /* Poop On Your Friends.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		8156AFF91BC4CF5F00B94365 /* Poop On Your FriendsUITests */ = {
@@ -168,7 +170,7 @@
 			);
 			name = "Poop On Your FriendsUITests";
 			productName = poop_interface1UITests;
-			productReference = 271997B11BCAF0F500154A2B /* Poop On Your Friends.xctest */;
+			productReference = 2711CBB41BCAF26E00F26198 /* Poop On Your Friends.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -392,7 +394,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = poop_interface1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jt.poop-interface1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pooponyourfriends.poop1;
 				PRODUCT_NAME = "Poop On Your Friends";
 				PROVISIONING_PROFILE = "";
 			};
@@ -406,7 +408,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = poop_interface1/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jt.poop-interface1";
+				PRODUCT_BUNDLE_IDENTIFIER = com.pooponyourfriends.poop1;
 				PRODUCT_NAME = "Poop On Your Friends";
 				PROVISIONING_PROFILE = "";
 			};
