@@ -119,7 +119,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     
     @IBAction func poopButtonPress(sender: UIButton) {
         poopButton.setImage(UIImage(named: "button.png"), forState: UIControlState.Normal)
-        if lastName == "" {
+        if (firstName == "" && lastName == "") {
             pickContact()
         } else {
             if thePoopBank.canSendPoops(Int(timesToPoop.value)) {
@@ -170,6 +170,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
             self.numPoopsLabel.text = "You \u{1F4A9} \(self.firstName) \(self.lastName)"
             self.poopButton.enabled = true
             self.pickAFriendButton.setTitle("Pick a friend", forState: .Normal)
+            self.firstName = ""
             self.lastName = ""
         }
         delayForSeconds(numberOfPoopsToSend+5) {self.numPoopsSliderUpdate()}
