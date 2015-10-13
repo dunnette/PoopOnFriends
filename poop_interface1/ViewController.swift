@@ -135,8 +135,7 @@ class ViewController: UIViewController, CNContactPickerDelegate {
     func sendPoop(numberOfPoopsToSend: Int, phoneNumber: String) {
         triggerSendingUI(numberOfPoopsToSend)
         for ii in 1...numberOfPoopsToSend {
-            delayForSeconds(ii-1)
-                {
+            delayForSeconds(ii-1) {
                     self.sendSMSMessage(phoneNumber)
                     self.thePoopBank.sendPoops(1)
                     self.updatePoopCountLabels()
